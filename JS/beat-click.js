@@ -8,10 +8,12 @@
 // 566miliseconds for one beat.
 //Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
 
+// var randomChoice = Math.floor(Math.random()*3); 
+// console.log("RANDOM CHOICE IS: "+randomChoice);
+
 $(document).ready(function () {
 
-// var randomChoice = Math.floor((Math.random() * 3)+1); 
-// console.log("RANDOM CHOICE IS: "+randomChoice);
+
 console.log( "Javascript Ready To Go!" ); 
 console.log( "START" );
 
@@ -26,7 +28,11 @@ var button3 = $(".button3");
 var circle1 = $(".circle1");
 var circle2 = $(".circle2");
 var circle3 = $(".circle3");
-var randomChoice = 0;
+var randomChoice;
+var interval1;
+var interval2;
+var interval3;
+var arrayChoice = [1,2,3];
 
 //Clcik to return to Home page
 function clickToHome(){
@@ -109,24 +115,30 @@ function clickThree(){
 clickThree();
 
 function oneBeat(){
-    var randomChoice = Math.floor((Math.random() * 1)+1);   
-    console.log("RANDOM CHOICE: CIRCLE "+randomChoice);
+    var randomChoice = Math.floor(Math.random()*3);   
+    console.log("MATH FLOOR is = "+randomChoice);
     // Change INNER number next to the *, to 1,2 or 3, to use multile circles.
     // CHANGE OUTER NUMBER ONLY: To ISOLATE single circles, use 1,2,3 respectively.
-    if (randomChoice === 1){
+    if (randomChoice === 0){
       var interval1 = setInterval(function(){ retractCircle1() }, 11.3207547169811);
-      console.log("CHOICE === 1");
+      // console.log(interval1);
+      console.log("randomChoice is 1");
     }
-    else if (randomChoice === 2){
+    else if (randomChoice === 1){
       var interval2 = setInterval(function(){ retractCircle2() }, 11.3207547169811);
-      console.log("CHOICE === 2");
+      console.log("randomChoice is 2");
     }
     else {
       var interval3 = setInterval(function(){ retractCircle3() }, 11.3207547169811);
-      console.log("CHOICE === 3");
+      console.log("randomChoice is 3");
     }
 }
+
+// var x = 0;
+// while (x < 3){
 oneBeat();
+// x--;
+// }
 
   // function checkStatus(){
   //   if (currentSize <= 450  && currentSize >= 370 ) {
@@ -154,7 +166,7 @@ oneBeat();
   function retractCircle1() {
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
-    //CHECK what state the outer circle is at
+    ////CHECK what state the outer circle is at, for ACCURACY and SCORING
     // if (currentSize <= 450  && currentSize >= 370 ) {
     //   $(".button1").css("background-color","red");
     // } 
@@ -167,18 +179,20 @@ oneBeat();
     // else{
     //   $(".button1").css("background-color","black");
     // }
+
     if (currentSize === minSize) {
       audioElement.play();
-      currentSize = 450;
-      decreasing = true;
-      console.log("CIRCLE 2 CLAP");
+      currentSize = 200.5;
+      decreasing = false;
+      console.log("CIRCLE 1 CLAP");
+      oneBeat();
     }
     if (decreasing == true) {
       (currentSize = currentSize - 5);
     }
     $(".circle1").css("height", currentSize);
-    $(".circle1").css("width", currentSize);  
-    return;
+    $(".circle1").css("width", currentSize);
+    
   }
 
   function retractCircle2() {
@@ -186,16 +200,17 @@ oneBeat();
     audioElement.setAttribute('src', 'Audio/whistle.wav');
     if (currentSize === minSize) {
       audioElement.play();
-      currentSize = 450;
-      decreasing = true;
-      console.log("CIRCLE 2 CLAP");
+      currentSize = 200.5;
+      decreasing = false;
+      console.log("CIRCLE 2 WHISTLE");
+      oneBeat();
     }
     if (decreasing == true) {
       (currentSize = currentSize - 5);
     }
     $(".circle2").css("height", currentSize);
     $(".circle2").css("width", currentSize);  
-    return;
+
   }
 
 
@@ -204,16 +219,16 @@ oneBeat();
     audioElement.setAttribute('src', 'Audio/normal.wav');
     if (currentSize === minSize) {
       audioElement.play();
-      currentSize = 450;
-      decreasing = true;
-      console.log("CIRCLE 2 CLAP");
+      currentSize = 200.5;
+      decreasing = false;
+      console.log("CIRCLE 3 DRUM");
+      oneBeat();
     }
     if (decreasing == true) {
       (currentSize = currentSize - 5);
     }
     $(".circle3").css("height", currentSize);
-    $(".circle3").css("width", currentSize);  
-    return;
+    $(".circle3").css("width", currentSize);    
   }
 
 }, 1600); //DELAY ALL WHEN LOAD PLAY-PAGE, DELAY 1.5 seconds.
