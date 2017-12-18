@@ -28,20 +28,25 @@ audioElement.setAttribute('src', 'Audio/bensound-summer.mp3');
 audioElement.play();
 
 audioElement.addEventListener("timeupdate", function() {
-    var timeleft = document.getElementById('timeRemain'),
-        duration = parseInt( audioElement.duration ),
-        currentTime = parseInt( audioElement.currentTime ),
-        timeLeft = duration - currentTime,
+    var timeleft = document.getElementById('timeRemain'), //assign new variable time left
+        duration = parseInt( audioElement.duration ), // parse in song total duration
+        currentTime = parseInt( audioElement.currentTime ), // parse in song current position
+        timeLeft = duration - currentTime, // Time left is always equal to max duration - current
         s, m;
     
-        s = timeLeft % 60;
-        m = Math.floor( timeLeft / 60 ) % 60;
+        s = timeLeft % 60; //seconds
+        m = Math.floor( timeLeft / 60 ) % 60; //minutes
         
         s = s < 10 ? "0"+s : s;
-        m = m < 10 ? "0"+m : m;
-        timeleft.innerHTML = m+":"+s;
+        m = m < 10 ? "0"+m : m;  // returns 
+
+        timeRemain.innerHTML = m+":"+s; //append minutes and seconds left to targeted html id
+
+        if ( m === 0 || s === 0){
+        window.location.href = 'form2.html';
+        }
     
-}, false);
+});
 
   var currentSize = 450;
   var minSize = 200;
