@@ -107,18 +107,19 @@ function oneBeat(){
     // CHANGE OUTER NUMBER ONLY: To ISOLATE single circles, use 1,2,3 respectively.
     if (randomChoice === 1){
       //var interval1 = setInterval(retractCircle1, 11.32);
-      var interval1 = setInterval(function(){ retractCircle1() }, 11.32);
+      var interval1 = setInterval(function(){ retractCircle1() }, 30);
+      // var interval1 = setInterval(function(){ retractCircle1() }, 11.3207547169811);
       console.log("CHOICE === 1");
       // retractCircle1();
     }
     else if (randomChoice === 2){
-      var interval2 = setInterval(function(){ retractCircle2() }, 11.32);
+      var interval2 = setInterval(function(){ retractCircle2() }, 11.3207547169811);
       //var interval = setInterval(retractCircle2, 11.32);
       console.log("CHOICE === 2");
       // retractCircle2();
     }
     else {
-      var interval3 = setInterval(function(){ retractCircle3() }, 11.32);
+      var interval3 = setInterval(function(){ retractCircle3() }, 11.3207547169811);
       //var interval = setInterval(retractCircle3, 11.32);
       console.log("CHOICE === 3");
       // retractCircle3();
@@ -153,21 +154,21 @@ oneBeat();
 
   function retractCircle1() {
     //put automatic audio on here, comment two lines back in
-    // var audioElement = document.createElement('audio');
-    // audioElement.setAttribute('src', 'Audio/clap.wav');
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'Audio/clap.wav');
 
     //CHECK what state the outer circle is at
     if (currentSize <= 450  && currentSize >= 370 ) {
-      $(".circle1").css("background-color","red");
+      $(".button1").css("background-color","red");
     } 
     else if (currentSize <= 369  && currentSize >= 300) {
-      $(".circle1").css("background-color","yellow");
+      $(".button1").css("background-color","yellow");
     } 
     else if (currentSize <= 299  && currentSize >= 200) {
-      $(".circle1").css("background-color","green");
+      $(".button1").css("background-color","green");
     } 
     else{
-      $(".circle1").css("background-color","black");
+      $(".button1").css("background-color","black");
     }
 
     if ((currentSize === minSize) ) {
