@@ -13,12 +13,12 @@ $(document).ready(function () {
 console.log( "Javascript Ready To Go!" ); 
 console.log( "START" );
 
-// function clickToHome(){
-//     home.addEventListener("click", function() {
-//     window.location.href = 'start.html';
-//   });
-//  }
-// clickToHome();
+function clickToHome(){
+    home.addEventListener("click", function() {
+    window.location.href = 'start.html';
+  });
+ }
+clickToHome();
 
 setTimeout(function () {
 
