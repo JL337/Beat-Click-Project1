@@ -13,12 +13,12 @@ $(document).ready(function () {
 console.log( "Javascript Ready To Go!" ); 
 console.log( "START" );
 
-function clickToHome(){
-    home.addEventListener("click", function() {
-    window.location.href = 'start.html';
-  });
- }
-clickToHome();
+// function clickToHome(){
+//     home.addEventListener("click", function() {
+//     window.location.href = 'start.html';
+//   });
+//  }
+// clickToHome();
 
 setTimeout(function () {
 
@@ -61,44 +61,44 @@ function clickOne(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
     audioElement.play();
-    $(this).css("background-color","green");
+    $(this).css("background-color","black");
     //CHECK HERE FOR COMPARISON SCORE
     console.log("clickOne");
   });
 }
 clickOne();
 
-function clickTwo(){
-  $(".button2")
-    .mouseup(function() {
-    $(this).css("background-color","transparent");
-  })
-    .mousedown(function() {
-    var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'Audio/whistle.wav');
-    audioElement.play();
-    $(this).css("background-color","yellow");
-    //CHECK HERE FOR COMPARISON SCORE
-    console.log("clickTwo");
-  });
-}
-clickTwo();
+// function clickTwo(){
+//   $(".button2")
+//     .mouseup(function() {
+//     $(this).css("background-color","transparent");
+//   })
+//     .mousedown(function() {
+//     var audioElement = document.createElement('audio');
+//     audioElement.setAttribute('src', 'Audio/whistle.wav');
+//     audioElement.play();
+//     $(this).css("background-color","yellow");
+//     //CHECK HERE FOR COMPARISON SCORE
+//     console.log("clickTwo");
+//   });
+// }
+// clickTwo();
 
-function clickThree(){
-  $(".button3")
-    .mouseup(function() {
-    $(this).css("background-color","transparent");
-  })
-    .mousedown(function() {
-    var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'Audio/normal.wav');
-    audioElement.play();
-    $(this).css("background-color","red");
-    //CHECK HERE FOR COMPARISON SCORE
-    console.log("clickThree");
-  });
-}
-clickThree();
+// function clickThree(){
+//   $(".button3")
+//     .mouseup(function() {
+//     $(this).css("background-color","transparent");
+//   })
+//     .mousedown(function() {
+//     var audioElement = document.createElement('audio');
+//     audioElement.setAttribute('src', 'Audio/normal.wav');
+//     audioElement.play();
+//     $(this).css("background-color","red");
+//     //CHECK HERE FOR COMPARISON SCORE
+//     console.log("clickThree");
+//   });
+// }
+// clickThree();
 
 function oneBeat(){
     var randomChoice = Math.floor((Math.random() * 1)+1);   
@@ -107,7 +107,7 @@ function oneBeat(){
     // CHANGE OUTER NUMBER ONLY: To ISOLATE single circles, use 1,2,3 respectively.
     if (randomChoice === 1){
       //var interval1 = setInterval(retractCircle1, 11.32);
-      var interval1 = setInterval(function(){ retractCircle1() }, 16.98);
+      var interval1 = setInterval(function(){ retractCircle1() }, 11.32);
       console.log("CHOICE === 1");
       // retractCircle1();
     }
@@ -153,22 +153,22 @@ oneBeat();
 
   function retractCircle1() {
     //put automatic audio on here, comment two lines back in
-    var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'Audio/clap.wav');
+    // var audioElement = document.createElement('audio');
+    // audioElement.setAttribute('src', 'Audio/clap.wav');
 
-    // //CHECK what state the outer circle is at
-    // if (currentSize <= 450  && currentSize >= 370 ) {
-    //   $(".circle1").css("background-color","red");
-    // } 
-    // else if (currentSize <= 369  && currentSize >= 300) {
-    //   $(".circle1").css("background-color","yellow");
-    // } 
-    // else if (currentSize <= 299  && currentSize >= 200) {
-    //   $(".circle1").css("background-color","green");
-    // } 
-    // else{
-    //   $(".circle1").css("background-color","black");
-    // }
+    //CHECK what state the outer circle is at
+    if (currentSize <= 450  && currentSize >= 370 ) {
+      $(".circle1").css("background-color","red");
+    } 
+    else if (currentSize <= 369  && currentSize >= 300) {
+      $(".circle1").css("background-color","yellow");
+    } 
+    else if (currentSize <= 299  && currentSize >= 200) {
+      $(".circle1").css("background-color","green");
+    } 
+    else{
+      $(".circle1").css("background-color","black");
+    }
 
     if ((currentSize === minSize) ) {
       currentSize = 450;

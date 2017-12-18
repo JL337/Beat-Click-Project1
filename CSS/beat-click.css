@@ -51,7 +51,7 @@
   margin: 5px;
 }
 
-.circle2 { 
+/*.circle2 { 
   z-index: 1;
   height:100px;
   width:100px;
@@ -74,7 +74,7 @@
   opacity: 0.8;
   margin: 5px;
 }
-
+*/
 /*This is the static circle*/
 
 button:focus {outline:0;} 
@@ -91,7 +91,7 @@ button:focus {outline:0;}
 
 }
 
-.button2 {
+/*.button2 {
   z-index: 2;
   position: absolute;
   height: 200px;
@@ -111,11 +111,10 @@ button:focus {outline:0;}
   border-radius: 100%;
   border: 10px solid grey;
 
-}
+}*/
 
-.scoreBox{
+/*.scoreBox{
   margin-top: 40px;
-/*background-color: grey;*/
   background-color: transparent;
   text-align:center;
   color:#e2eaf3;
@@ -128,7 +127,6 @@ button:focus {outline:0;}
 
 .returnHome{
   margin-top: 0px;
-/*  background-color: grey;*/
   background-color: transparent;
   text-align:center;
   color:#e2eaf3;
@@ -137,7 +135,7 @@ button:focus {outline:0;}
   color:#e2eaf3;
   font-weight:bold;
   text-decoration:none;
-}
+}*/
 
 html{ 
 /*  background: url('../Images/35555933_p0.png') no-repeat center center fixed; 
