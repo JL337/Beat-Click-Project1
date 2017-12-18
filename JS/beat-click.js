@@ -22,10 +22,26 @@ clickToHome();
 
 setTimeout(function () {
 
-  // Play Main Song
-  // var audioElement = document.createElement('audio');
-  // audioElement.setAttribute('src', 'Audio/bensound-summer.mp3');
-  // audioElement.play();
+  //Play Main Song
+var audioElement = document.createElement('audio');
+audioElement.setAttribute('src', 'Audio/bensound-summer.mp3');
+audioElement.play();
+
+audioElement.addEventListener("timeupdate", function() {
+    var timeleft = document.getElementById('timeRemain'),
+        duration = parseInt( audioElement.duration ),
+        currentTime = parseInt( audioElement.currentTime ),
+        timeLeft = duration - currentTime,
+        s, m;
+    
+        s = timeLeft % 60;
+        m = Math.floor( timeLeft / 60 ) % 60;
+        
+        s = s < 10 ? "0"+s : s;
+        m = m < 10 ? "0"+m : m;
+        timeleft.innerHTML = m+":"+s;
+    
+}, false);
 
   var currentSize = 450;
   var minSize = 200;
