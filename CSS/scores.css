@@ -1,7 +1,7 @@
 html{ 
-  background: url('../Images/66073045_p0.png') no-repeat center center fixed; 
-  background-size: cover;
-/*  background-color: black;*/
+/*  background: url('../Images/66073045_p0.png') no-repeat center center fixed; 
+  background-size: cover;*/
+  background-color: black;
 }
 
 #scoreTitle{

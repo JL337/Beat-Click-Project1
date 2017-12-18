@@ -1,7 +1,6 @@
 /*body { 
     background-color: transparent;
 }*/
-
 .parent1{
     background: transparent;
     opacity: 1;
@@ -13,30 +12,6 @@
     justify-content: center;
     flex-wrap: wrap;
 }
-
-/*.parent2{
-    background: transparent;
-    opacity: 0.9;
-    height: 450px;
-    width: 450px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.parent3{
-    background: transparent;
-    opacity: 0.9;
-    height: 450px;
-    width: 450px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}*/
 
 /*This is the moving circle*/
 .circle1 { 
@@ -51,7 +26,7 @@
   margin: 5px;
 }
 
-/*.circle2 { 
+.circle2 { 
   z-index: 1;
   height:100px;
   width:100px;
@@ -61,9 +36,9 @@
   border: 10px solid #7FFFD4;
   opacity: 0.8;
   margin: 5px;
-}*/
+}
 
-/*.circle3 { 
+.circle3 { 
   z-index: 1;
   height:100px;
   width: 100px;
@@ -73,7 +48,7 @@
   border: 10px solid #7FFFD4;
   opacity: 0.8;
   margin: 5px;
-}*/
+}
 
 /*This is the static circle*/
 
@@ -125,7 +100,7 @@ button:focus {outline:0;}
   text-decoration:none;
 }
 
-.returnHome{
+#Home{
   margin-top: 0px;
   background-color: transparent;
   text-align:center;
@@ -150,8 +125,8 @@ button:focus {outline:0;}
 }
 
 html{ 
-  background: url('../Images/35555933_p0.png') no-repeat center center fixed; 
-  background-size: cover;
-/*  background-color: black;*/
+/*  background: url('../Images/35555933_p0.png') no-repeat center center fixed; 
+  background-size: cover;*/
+  background-color: black;
 }
 
