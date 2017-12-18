@@ -16,8 +16,8 @@
 /*This is the moving circle*/
 .circle1 { 
   z-index: 1;
-  height: 450px;
-  width: 450px;
+  height: 100px;
+  width: 100px;
   position: relative;
   background-color: transparent;
   border-radius: 100%;
@@ -28,8 +28,8 @@
 
 .circle2 { 
   z-index: 1;
-  height:450px;
-  width:450px;
+  height:100px;
+  width:100px;
   position: relative;
   background-color: transparent;
   border-radius: 100%;
@@ -40,8 +40,8 @@
 
 .circle3 { 
   z-index: 1;
-  height:450px;
-  width: 450px;
+  height:100px;
+  width: 100px;
   position: relative;
   background-color: transparent;
   border-radius: 100%;

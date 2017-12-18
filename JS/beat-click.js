@@ -28,11 +28,10 @@ var button3 = $(".button3");
 var circle1 = $(".circle1");
 var circle2 = $(".circle2");
 var circle3 = $(".circle3");
-var randomChoice;
-var interval1;
-var interval2;
-var interval3;
-var arrayChoice = [1,2,3];
+// var randomChoice;
+// var randomNumber = Math.floor(Math.random()*3);
+// var gameLoop = setInterval(gameLoop, 11.3207547169811);
+
 
 //Clcik to return to Home page
 function clickToHome(){
@@ -77,8 +76,9 @@ function clickOne(){
     audioElement.setAttribute('src', 'Audio/clap.wav');
     audioElement.play();
     $(this).css("background-color","green");
-    //CHECK HERE FOR COMPARISON SCORE
     console.log("clickOne");
+    checkStatus();
+    
   });
 }
 clickOne();
@@ -93,7 +93,6 @@ function clickTwo(){
     audioElement.setAttribute('src', 'Audio/whistle.wav');
     audioElement.play();
     $(this).css("background-color","yellow");
-    //CHECK HERE FOR COMPARISON SCORE
     console.log("clickTwo");
   });
 }
@@ -114,54 +113,43 @@ function clickThree(){
 }
 clickThree();
 
-function oneBeat(){
-    var randomChoice = Math.floor(Math.random()*3);   
-    console.log("MATH FLOOR is = "+randomChoice);
-    // Change INNER number next to the *, to 1,2 or 3, to use multile circles.
-    // CHANGE OUTER NUMBER ONLY: To ISOLATE single circles, use 1,2,3 respectively.
-    if (randomChoice === 0){
-      var interval1 = setInterval(function(){ retractCircle1() }, 11.3207547169811);
-      // console.log(interval1);
-      console.log("randomChoice is 1");
+//var superInterval = setInterval(oneBeat,11.3207547169811);
+//var randomChoice = 0;//Math.floor(Math.random()*3);
+
+  function checkStatus(){  // SEMI WORKING
+    if (currentSize <= 450  && currentSize >= 370 ) {
+      $("#scoreValue").text(+25);  
+    } 
+    else if (currentSize <= 369  && currentSize >= 300) {
+      $("#scoreValue").text(+50);
+    } 
+    else if (currentSize <= 299  && currentSize >= 200) {
+      $(".#scoreValue").text(+100);
+    } 
+    else{
+      $("#scoreValue").text(+0);
     }
-    else if (randomChoice === 1){
-      var interval2 = setInterval(function(){ retractCircle2() }, 11.3207547169811);
-      console.log("randomChoice is 2");
-    }
-    else {
-      var interval3 = setInterval(function(){ retractCircle3() }, 11.3207547169811);
-      console.log("randomChoice is 3");
-    }
+  }
+
+var randomNumber = Math.floor(Math.random()*3);
+var gameLoop = setInterval(gameLoop, 11.3207547169811);
+
+function gameLoop(){
+  switch(randomNumber) {
+      case 0:
+          retractCircle1();
+          break;
+      case 1:
+          retractCircle2();
+          break;
+      case 2:
+          retractCircle3();
+          break;          
+      default:
+          alert("Math Random Returned Invalid!");
+          break;
+      }
 }
-
-// var x = 0;
-// while (x < 3){
-oneBeat();
-// x--;
-// }
-
-  // function checkStatus(){
-  //   if (currentSize <= 450  && currentSize >= 370 ) {
-  //     checkStatus = 10; // BAD - 10 points
-  //     console.log("checkStatus points are: "+checkStatus);
-  //     return checkStatus; 
-  //   } 
-  //   else if (currentSize <= 369  && currentSize >= 300) {
-  //     checkStatus = 25; // OK - 25 points
-  //     console.log("checkStatus points are: "+checkStatus);
-  //     return checkStatus;
-  //   } 
-  //   else if (currentSize <= 299  && currentSize >= 200) {
-  //     checkStatus = 50; // GREAT - 50 points
-  //     console.log("checkStatus points are: "+checkStatus);
-  //     return checkStatus;
-  //   } 
-  //   else{
-  //     checkStatus = 0;
-  //     console.log("checkStatus points are: "+checkStatus);
-  //     return checkStatus;
-  //   }
-  // }
 
   function retractCircle1() {
     var audioElement = document.createElement('audio');
@@ -179,14 +167,14 @@ oneBeat();
     // else{
     //   $(".button1").css("background-color","black");
     // }
-
     if (currentSize === minSize) {
       audioElement.play();
-      currentSize = 200.5;
-      decreasing = false;
+      currentSize = 450;
       console.log("CIRCLE 1 CLAP");
-      oneBeat();
-    }
+      decreasing == false;
+      randomNumber = Math.floor(Math.random()*3);
+      return;
+    }  
     if (decreasing == true) {
       (currentSize = currentSize - 5);
     }
@@ -200,10 +188,11 @@ oneBeat();
     audioElement.setAttribute('src', 'Audio/whistle.wav');
     if (currentSize === minSize) {
       audioElement.play();
-      currentSize = 200.5;
-      decreasing = false;
+      currentSize = 450;
       console.log("CIRCLE 2 WHISTLE");
-      oneBeat();
+      decreasing == false;
+      randomNumber = Math.floor(Math.random()*3);
+      return;
     }
     if (decreasing == true) {
       (currentSize = currentSize - 5);
@@ -217,18 +206,19 @@ oneBeat();
   function retractCircle3() {
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/normal.wav');
-    if (currentSize === minSize) {
-      audioElement.play();
-      currentSize = 200.5;
-      decreasing = false;
-      console.log("CIRCLE 3 DRUM");
-      oneBeat();
-    }
-    if (decreasing == true) {
-      (currentSize = currentSize - 5);
-    }
-    $(".circle3").css("height", currentSize);
-    $(".circle3").css("width", currentSize);    
+   if (currentSize === minSize) {
+    audioElement.play();
+    currentSize = 450;
+    console.log("CIRCLE 3 DRUM");
+    decreasing == false;
+    randomNumber = Math.floor(Math.random()*3);
+    return;
+   }
+  if (decreasing == true) {
+    (currentSize = currentSize - 5);
+  }
+  $(".circle3").css("height", currentSize);
+  $(".circle3").css("width", currentSize);    
   }
 
 }, 1600); //DELAY ALL WHEN LOAD PLAY-PAGE, DELAY 1.5 seconds.
