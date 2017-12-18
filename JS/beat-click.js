@@ -28,6 +28,7 @@ var circle2 = $(".circle2");
 var circle3 = $(".circle3");
 var randomChoice = 0;
 
+//Clcik to return to Home page
 function clickToHome(){
     home.addEventListener("click", function() {
     window.location.href = 'start.html';
@@ -35,33 +36,30 @@ function clickToHome(){
  }
 clickToHome();
 
-setTimeout(function () {
+function clickToScores(){
+    finalScorePage.addEventListener("click", function() {
+    window.location.href = 'scores.html';
+  });
+ }
+clickToScores();
 
-  //Play Main Song
+setTimeout(function () {
+//Play Main Song AND check duration with clock.
 var audioElement = document.createElement('audio');
 audioElement.setAttribute('src', 'Audio/bensound-summer.mp3');
 audioElement.play();
-
 audioElement.addEventListener("timeupdate", function() {
     var timeleft = document.getElementById('timeRemain'), //assign new variable time left
         duration = parseInt( audioElement.duration ), // parse in song total duration
         currentTime = parseInt( audioElement.currentTime ), // parse in song current position
         timeLeft = duration - currentTime, // Time left is always equal to max duration - current
         s, m;
-    
         s = timeLeft % 60; //seconds
-        m = Math.floor( timeLeft / 60 ) % 60; //minutes
-        
+        m = Math.floor( timeLeft / 60 ) % 60; //minutes  
         s = s < 10 ? "0"+s : s;
         m = m < 10 ? "0"+m : m;  // returns 
-
         timeRemain.innerHTML = m+":"+s; //append minutes and seconds left to targeted html id
-
-        // if ( m === 0 || s === 0){
-        // window.location.href = 'form2.html';
-        // }   
 });
-
 
 function clickOne(){
   $(".button1")
