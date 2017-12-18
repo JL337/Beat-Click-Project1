@@ -23,9 +23,9 @@ console.log( "START" );
 setTimeout(function () {
 
   // Play Main Song
-  var audioElement = document.createElement('audio');
-  audioElement.setAttribute('src', 'Audio/bensound-summer.mp3');
-  audioElement.play();
+  // var audioElement = document.createElement('audio');
+  // audioElement.setAttribute('src', 'Audio/bensound-summer.mp3');
+  // audioElement.play();
 
   var currentSize = 450;
   var minSize = 200;
@@ -107,8 +107,7 @@ function oneBeat(){
     // CHANGE OUTER NUMBER ONLY: To ISOLATE single circles, use 1,2,3 respectively.
     if (randomChoice === 1){
       //var interval1 = setInterval(retractCircle1, 11.32);
-      var interval1 = setInterval(function(){ retractCircle1() }, 30);
-      // var interval1 = setInterval(function(){ retractCircle1() }, 11.3207547169811);
+      var interval1 = setInterval(function(){ retractCircle1() }, 11.3207547169811);
       console.log("CHOICE === 1");
       // retractCircle1();
     }
@@ -154,27 +153,27 @@ oneBeat();
 
   function retractCircle1() {
     //put automatic audio on here, comment two lines back in
-    var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'Audio/clap.wav');
+    // var audioElement = document.createElement('audio');
+    // audioElement.setAttribute('src', 'Audio/clap.wav');
 
     //CHECK what state the outer circle is at
-    if (currentSize <= 450  && currentSize >= 370 ) {
-      $(".button1").css("background-color","red");
-    } 
-    else if (currentSize <= 369  && currentSize >= 300) {
-      $(".button1").css("background-color","yellow");
-    } 
-    else if (currentSize <= 299  && currentSize >= 200) {
-      $(".button1").css("background-color","green");
-    } 
-    else{
-      $(".button1").css("background-color","black");
-    }
+    // if (currentSize <= 450  && currentSize >= 370 ) {
+    //   $(".button1").css("background-color","red");
+    // } 
+    // else if (currentSize <= 369  && currentSize >= 300) {
+    //   $(".button1").css("background-color","yellow");
+    // } 
+    // else if (currentSize <= 299  && currentSize >= 200) {
+    //   $(".button1").css("background-color","green");
+    // } 
+    // else{
+    //   $(".button1").css("background-color","black");
+    // }
 
     if ((currentSize === minSize) ) {
       currentSize = 450;
       decreasing = true;
-      audioElement.play();
+      //audioElement.play();
       console.log("CIRCLE 1 CLAP");
       return;
       // console.log("currentSize is: "+currentSize);
