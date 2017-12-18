@@ -1,0 +1,147 @@
+/*body { 
+    background-color: transparent;
+}*/
+
+.parent1{
+    background: transparent;
+    opacity: 1;
+    height: 450px;
+    width: 450px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*.parent2{
+    background: transparent;
+    opacity: 0.9;
+    height: 450px;
+    width: 450px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.parent3{
+    background: transparent;
+    opacity: 0.9;
+    height: 450px;
+    width: 450px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}*/
+
+/*This is the moving circle*/
+.circle1 { 
+  z-index: 1;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 10px solid #7FFFD4;
+  opacity: 0.8;
+  margin: 5px;
+}
+
+.circle2 { 
+  z-index: 1;
+  height:100px;
+  width:100px;
+  position: relative;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 10px solid #7FFFD4;
+  opacity: 0.8;
+  margin: 5px;
+}
+
+.circle3 { 
+  z-index: 1;
+  height:100px;
+  width: 100px;
+  position: relative;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 10px solid #7FFFD4;
+  opacity: 0.8;
+  margin: 5px;
+}
+
+/*This is the static circle*/
+
+button:focus {outline:0;} 
+/*REMOVES the horrible blue background on button click!*/
+
+.button1 {
+  z-index: 2;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 10px solid grey;
+
+}
+
+.button2 {
+  z-index: 2;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 10px solid grey;
+
+}
+
+.button3 {
+  z-index: 2;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 10px solid grey;
+
+}
+
+.scoreBox{
+  margin-top: 40px;
+/*background-color: grey;*/
+  background-color: transparent;
+  text-align:center;
+  color:#e2eaf3;
+  font-family: 'Verdana', sans-serif;
+  font-size:1.2em;
+  color:#e2eaf3;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.returnHome{
+  margin-top: 0px;
+/*  background-color: grey;*/
+  background-color: transparent;
+  text-align:center;
+  color:#e2eaf3;
+  font-family: 'Verdana', sans-serif;
+  font-size:1.2em;
+  color:#e2eaf3;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+html{ 
+/*  background: url('../Images/35555933_p0.png') no-repeat center center fixed; 
+  background-size: cover;*/
+  background-color: black;
+}
+

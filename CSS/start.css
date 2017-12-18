@@ -1,0 +1,104 @@
+.container-title{
+	margin-top: 40px;
+/*	background-color: grey;*/
+  background-color: transparent;
+
+  text-align:center;
+  color:#e2eaf3;
+  font-family:Verdana;
+  font-size:1.2em;
+  color:#e2eaf3;
+  font-weight:bold;
+  text-decoration:none;
+	height: 110px;
+}
+
+.container-intro{
+	margin-top: 30px;
+/*	background-color: grey;*/
+  background-color: transparent;
+	height: 145px;
+
+  text-align:center;
+  font-family:Verdana;
+  font-size:1.3em;
+  color: #e2eaf3;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.container-play{
+	margin-top: none;
+/*	background-color: grey;*/
+  background-color: transparent;
+	height: 100px;
+	text-align: center;
+}
+
+#title{
+	border-radius: 10px light grey;
+	background-color: light grey;
+  border-radius: 20px;	
+}
+
+#intro{
+	background-color: light grey;
+	text-align: center;	
+  border: 10px black;
+  padding-bottom: 10px;
+  border-radius: 20px;
+}
+
+#sides{
+  border-radius: none;
+}
+
+.round-button {
+  width:25%;
+  margin: auto;
+}
+.round-button-circle {
+  width: 43%;
+  height:0;
+  padding-bottom: 40%;
+  border-radius: 50%;
+  border:5px solid #cfdcec;
+  overflow:hidden;
+  margin: auto;
+        
+  background: black; 
+  box-shadow: 0 0 3px gray;
+}
+.round-button-circle:hover {
+  background: grey;
+}
+.round-button a {
+  display:block;
+  float:left;
+  width:100%;
+  padding-top:50%;
+  padding-bottom:50%;
+  line-height:1em;
+  margin-top:-0.5em;
+        
+  text-align:center;
+  color:#e2eaf3;
+  font-family:Verdana;
+  font-size:1.2em;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+html{ 
+  background-color: black;
+/*  background: url('../Images/38682493_p1_master1200.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; 
+  background-size: cover;*/
+}
+
+body {
+  background-color: transparent;
+}
+

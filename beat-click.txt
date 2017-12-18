@@ -1,0 +1,28 @@
+Pseudo Code:
+
+To check, HTML Pages:
+1)HTML introduction page
+2)HTML in-play page
+3)HTML game over, score screen
+
+Functionality:
+1) Have at least ONE circle with its respective outer circle
+2) Have a working introduction and score page that links to the correct HTML's.
+3) Check audio works, background sound and on button click. Minimum ONE circle.
+4) Have a working score system with at least ONE circle check accuracy function that works.
+5) End the game when 5 mistakes have been made (red), or when the song ends.
+
+How to, steps:
+
+1) Delay the whole code. 1.5-2 seconds.
+2) Start background song, and at the same time start the first circle. (3 circles?)
+3) When outer circle hits inner circle, play a sound to check it works.
+4) If 3) works, then change it so, when player clicks it makes the 'audio' click sound.
+5) On player click, check which BUTTON was pressed, and accuracy of click.
+6) If wrong button was clicked, score 0, MISS.
+7) Otherwise check accuracy of click. Green, Great!: 100points / Yellow,Ok!: 50 points / Red,Bad!:0 points
+8) Display score below the circles. OPTIONAL: Add text to display accuracy: GREAT / OK / BAD / MISS
+9) Repeat from 3-8, when player makes 5 mistakes, 5 RED,BAD! then go to 10. OR go to 10, when song ENDS.
+10) Save current score, and go to end of score screen.
+11) Link end of score screen to the intro page.
+
