@@ -71,7 +71,6 @@
 $(document).ready(function () {
 
 $('#button01').keydown(function(event){
-// console.log(event.keyCode);
 if (event.keyCode === 90){
   console.log(event.keyCode);
   var audioElement = document.createElement('audio');
@@ -83,7 +82,6 @@ if (event.keyCode === 90){
 });
 
 $('#button01').keyup(function(event){
-// console.log(event.keyCode);
   if (event.keyCode === 90){
     console.log(event.keyCode);
     $(this).css("background-color","transparent");
@@ -91,7 +89,6 @@ $('#button01').keyup(function(event){
 });
 
 $('#button02').keydown(function(event){
-// console.log(event.keyCode);
 if (event.keyCode === 88){
   console.log(event.keyCode);
   var audioElement = document.createElement('audio');
@@ -103,7 +100,6 @@ if (event.keyCode === 88){
 });
 
 $('#button02').keyup(function(event){
-// console.log(event.keyCode);
   if (event.keyCode === 88){
     console.log(event.keyCode);
     $(this).css("background-color","transparent");
@@ -122,7 +118,7 @@ if (event.keyCode === 67){
   }
 });
 
-$('#button02').keyup(function(event){
+$('#button03').keyup(function(event){
 // console.log(event.keyCode);
   if (event.keyCode === 67){
     console.log(event.keyCode);
@@ -149,6 +145,7 @@ var runningScore = 0;
 var MISS = 0;
 var OK = 0;
 var PERFECT = 0;
+var randomNumber = Math.floor(Math.random()*3);
 
 //Click to return to Home page
 function clickToHome(){
@@ -159,19 +156,22 @@ function clickToHome(){
  }
 clickToHome();
 
-// function clickToScores(){
-//     finalScorePage.addEventListener("click", function() {
-//     window.location.href = 'scores.html';
-//   });
-//  }
-// clickToScores();
-
+//Click end game to end the game early
+function endTheGame(){ // USE THIS LATER TO END GAME WHEN SONG TIMER GOES TO ZERO.
+    endGame.addEventListener("click", function() 
+    {
+      randomNumber = 4;
+      alert("Game Over! Your Final Score is: "+runningScore);
+      window.location.href = 'start.html';
+    });
+ }
+endTheGame();
 
 setTimeout(function () {
 //Play Main Song AND check duration with clock.
-//randomAudio = Math.floor(Math.random()*8); // PURE RANDOM OUT OF 9 SONGS
+randomAudio = Math.floor(Math.random()*8); // PURE RANDOM OUT OF 9 SONGS
 //randomAudio = 8; //SUMMER TRACK
-randomAudio = 4; //RETRO-SOUL TRACK -- GOOD TIMING!
+randomAudio = 0; //RETRO-SOUL TRACK -- GOOD TIMING!
 //randomAudio = 6; // PUT EXACT CASE NUMBER FOR EXACT SONG!
 //randomAudio = 9; // TEST CLICKS ONLY
 
@@ -193,7 +193,7 @@ var songsList = [{
   },
   {
   file: "bensound-happyrock.mp3", //4
-  speed: 80,
+  speed: 10,
   },
   {
   file: "bensound-house.mp3", //5
@@ -222,6 +222,7 @@ var audioElement = document.createElement('audio');
 audioElement.setAttribute('src', 'Audio/'+song.file);
 var gameLoop = setInterval(gameLoop, +song.speed);
 $("#songName").text("Now Playing: "+song.file);
+// $("#html").css("background",+song.background);
 
 audioElement.play();
 audioElement.addEventListener("timeupdate", function() {
@@ -308,9 +309,9 @@ clickThree();
     }
   }
 
-//var randomNumber = Math.floor(Math.random()*3);
+
 //// TESTING PURPOSES
-var randomNumber = 1; // Start on middle circle!
+//var randomNumber = 1; // Start on middle circle!
 //var gameLoop = setInterval(gameLoop, 11.3207547169811); // NORMAL SPEED - 106 BPM
 //var gameLoop = setInterval(gameLoop, 100); // TEST SPEED OF SCORING - SLOW
 
@@ -327,7 +328,7 @@ function gameLoop(){
           retractCircle3();
           break;          
       default:
-          alert("Math Random Returned Invalid Circle Choice!");
+          endTheGame();
           break;
       }
 }
