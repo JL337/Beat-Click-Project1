@@ -1,7 +1,6 @@
 //var msPerBeat = (1000*60)/ bpm
 //ms_per_beat = 1000 * 60 / bpm
 
-
 // Filename: bensound-badass.mp3
 // Type: audio/mp3
 // Size: 1491kb
@@ -75,7 +74,6 @@ $(document).ready(function () {
 console.log( "Javascript Ready To Go!" ); 
 console.log( "START" );
 
-
 var currentSize = 450;
 var minSize = 200;
 var decreasing = true;
@@ -110,14 +108,16 @@ clickToHome();
 
 
 setTimeout(function () {
+
 var audioElement = document.createElement('audio');
 //Play Main Song AND check duration with clock.
 
-// randomAudio = Math.floor(Math.random()*8); // PURE RANDOM OUT OF 9 SONGS
+//randomAudio = Math.floor(Math.random()*8); // PURE RANDOM OUT OF 9 SONGS
 //randomAudio = 8; //SUMMER TRACK
-//randomAudio = 6; //RETRO-SOUL TRACK -- GOOD TIMING!
+randomAudio = 6; //RETRO-SOUL TRACK -- GOOD TIMING!
 
-randomAudio = 6; // PUT EXACT CASE NUMBER FOR EXACT SONG!
+//randomAudio = 6; // PUT EXACT CASE NUMBER FOR EXACT SONG!
+//randomAudio = 9; // TEST CLICKS ONLY
 
 switch(randomAudio) {
     case 0:        
@@ -157,7 +157,8 @@ switch(randomAudio) {
         var gameLoop = setInterval(gameLoop, 11.3208); // Divide MS/50 
         break;                   
     default:
-        alert("Audio Choice is Invalid!");
+        alert("ALERT: TEST SLOW CIRCLE SPEED (INTERVAL)");
+        var gameLoop = setInterval(gameLoop, 90); // TEST INTERVAL
         break;
     }
 audioElement.play();
@@ -184,7 +185,7 @@ function clickOne(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
     audioElement.play();
-    $(this).css("background-color","blue");
+    $(this).css("background-color","white");
     console.log("clickOne");
     checkStatus();
   });
@@ -200,7 +201,7 @@ function clickTwo(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/wood.wav');
     audioElement.play();
-    $(this).css("background-color","blue");
+    $(this).css("background-color","white");
     console.log("clickTwo");
     checkStatus();
   });
@@ -216,7 +217,7 @@ function clickThree(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/drum.wav');
     audioElement.play();
-    $(this).css("background-color","blue");
+    $(this).css("background-color","white");
     console.log("clickThree");
     checkStatus();
   });
@@ -225,22 +226,22 @@ clickThree();
 
   function checkStatus(){  // SEMI WORKING
     if (currentSize <= 450  && currentSize >= 370 ) {
-      runningScore = runningScore + 0; 
-      $("#scoreValue").text("MISS CLICK! : "+runningScore);
+      runningScore = runningScore + 10; 
+      $("#scoreValue").text("MISS CLICK : "+runningScore);
       MISS = MISS + 1;
       $("#MISS").text("MISS CLICK : "+MISS);    
     } 
     else if (currentSize <= 369  && currentSize >= 300) {
       runningScore = runningScore + 50; 
-      $("#scoreValue").text("OK CLICK! : "+runningScore); 
+      $("#scoreValue").text("OK CLICK : "+runningScore); 
       OK = OK + 1;
-      $("#OK").text("OK CLICK! : " +OK);  
+      $("#OK").text("OK CLICK : " +OK);  
     } 
     else if (currentSize <= 299  && currentSize >= 200) {
       runningScore = runningScore + 100; 
-      $("#scoreValue").text("PERFECT CLICK! : "+runningScore); 
+      $("#scoreValue").text("PERFECT CLICK : "+runningScore); 
       PERFECT = PERFECT + 1;
-      $("#PERFECT").text("PERFECT CLICK! : "+PERFECT);  
+      $("#PERFECT").text("PERFECT CLICK : "+PERFECT);  
     } 
     else{
       alert("ERROR SCORE");
@@ -301,18 +302,18 @@ function gameLoop(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
     //CHECK what state the outer circle is at, for ACCURACY and SCORING
-    if (currentSize <= 450  && currentSize >= 370 ) {
-      $(".circle1").css("background-color","red");
-    } 
-    else if (currentSize <= 369  && currentSize >= 300) {
-      $(".circle1").css("background-color","yellow");
-    } 
-    else if (currentSize <= 299  && currentSize >= 200) {
-      $(".circle1").css("background-color","green");
-    } 
-    else{
-      $(".button1").css("background-color","blue");
-    }
+    // if (currentSize <= 450  && currentSize >= 370 ) {
+    //   $(".circle1").css("background-color","red");
+    // } 
+    // else if (currentSize <= 369  && currentSize >= 300) {
+    //   $(".circle1").css("background-color","yellow");
+    // } 
+    // else if (currentSize <= 299  && currentSize >= 200) {
+    //   $(".circle1").css("background-color","green");
+    // } 
+    // else{
+    //   $(".button1").css("background-color","blue");
+    // }
     if (currentSize === minSize) {
       audioElement.play();
       currentSize = 450;
@@ -365,18 +366,18 @@ function gameLoop(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
     //CHECK what state the outer circle is at, for ACCURACY and SCORING
-    if (currentSize <= 450  && currentSize >= 370 ) {
-      $(".circle3").css("background-color","red");
-    } 
-    else if (currentSize <= 369  && currentSize >= 300) {
-      $(".circle3").css("background-color","yellow");
-    } 
-    else if (currentSize <= 299  && currentSize >= 200) {
-      $(".circle3").css("background-color","green");
-    } 
-    else{
-      $(".circle3").css("background-color","blue");
-    }
+    // if (currentSize <= 450  && currentSize >= 370 ) {
+    //   $(".circle3").css("background-color","red");
+    // } 
+    // else if (currentSize <= 369  && currentSize >= 300) {
+    //   $(".circle3").css("background-color","yellow");
+    // } 
+    // else if (currentSize <= 299  && currentSize >= 200) {
+    //   $(".circle3").css("background-color","green");
+    // } 
+    // else{
+    //   $(".circle3").css("background-color","blue");
+    // }
    if (currentSize === minSize) {
     audioElement.play();
     currentSize = 450;
