@@ -8,9 +8,6 @@
 // 566miliseconds for one beat.
 //Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
 
-// var randomChoice = Math.floor(Math.random()*3); 
-// console.log("RANDOM CHOICE IS: "+randomChoice);
-
 $(document).ready(function () {
 
 
@@ -21,19 +18,21 @@ console.log( "START" );
 var currentSize = 450;
 var minSize = 200;
 var decreasing = true;
-var checkStatus = 0;
 var button1 = $(".button1");
 var button2 = $(".button2");
 var button3 = $(".button3");
 var circle1 = $(".circle1");
 var circle2 = $(".circle2");
 var circle3 = $(".circle3");
-// var randomChoice;
-// var randomNumber = Math.floor(Math.random()*3);
-// var gameLoop = setInterval(gameLoop, 11.3207547169811);
+var click1Valid = false;
+var click2Valid = false;
+var click3Valid = false;
+var runningScore = 0;
+var MISS = 0;
+var OK = 0;
+var PERFECT = 0;
 
-
-//Clcik to return to Home page
+//Click to return to Home page
 function clickToHome(){
     home.addEventListener("click", function() {
     window.location.href = 'start.html';
@@ -41,12 +40,12 @@ function clickToHome(){
  }
 clickToHome();
 
-function clickToScores(){
-    finalScorePage.addEventListener("click", function() {
-    window.location.href = 'scores.html';
-  });
- }
-clickToScores();
+// function clickToScores(){
+//     finalScorePage.addEventListener("click", function() {
+//     window.location.href = 'scores.html';
+//   });
+//  }
+// clickToScores();
 
 setTimeout(function () {
 //Play Main Song AND check duration with clock.
@@ -59,12 +58,13 @@ audioElement.addEventListener("timeupdate", function() {
         currentTime = parseInt( audioElement.currentTime ), // parse in song current position
         timeLeft = duration - currentTime, // Time left is always equal to max duration - current
         s, m;
-        s = timeLeft % 60; //seconds
-        m = Math.floor( timeLeft / 60 ) % 60; //minutes  
-        s = s < 10 ? "0"+s : s;
-        m = m < 10 ? "0"+m : m;  // returns 
+        s = timeLeft % 60; 
+        m = Math.floor( timeLeft / 60 ) % 60;  
+        s = s < 10 ? "0"+s : s; // seconds
+        m = m < 10 ? "0"+m : m;  // minutes
         timeRemain.innerHTML = m+":"+s; //append minutes and seconds left to targeted html id
 });
+
 
 function clickOne(){
   $(".button1")
@@ -75,10 +75,9 @@ function clickOne(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
     audioElement.play();
-    $(this).css("background-color","green");
+    $(this).css("background-color","blue");
     console.log("clickOne");
     checkStatus();
-    
   });
 }
 clickOne();
@@ -90,10 +89,11 @@ function clickTwo(){
   })
     .mousedown(function() {
     var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'Audio/whistle.wav');
+    audioElement.setAttribute('src', 'Audio/wood.wav');
     audioElement.play();
-    $(this).css("background-color","yellow");
+    $(this).css("background-color","blue");
     console.log("clickTwo");
+    checkStatus();
   });
 }
 clickTwo();
@@ -105,68 +105,105 @@ function clickThree(){
   })
     .mousedown(function() {
     var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'Audio/normal.wav');
+    audioElement.setAttribute('src', 'Audio/drum.wav');
     audioElement.play();
-    $(this).css("background-color","red");
+    $(this).css("background-color","blue");
     console.log("clickThree");
+    checkStatus();
   });
 }
 clickThree();
 
-//var superInterval = setInterval(oneBeat,11.3207547169811);
-//var randomChoice = 0;//Math.floor(Math.random()*3);
-
   function checkStatus(){  // SEMI WORKING
     if (currentSize <= 450  && currentSize >= 370 ) {
-      $("#scoreValue").text(+25);  
+      runningScore = runningScore + 0; 
+      $("#scoreValue").text("MISS CLICK! : "+runningScore);
+      MISS = MISS + 1;
+      $("#MISS").text("MISS CLICK : "+MISS);    
     } 
     else if (currentSize <= 369  && currentSize >= 300) {
-      $("#scoreValue").text(+50);
+      runningScore = runningScore + 50; 
+      $("#scoreValue").text("OK CLICK! : "+runningScore); 
+      OK = OK + 1;
+      $("#OK").text("OK CLICK! : " +OK);  
     } 
     else if (currentSize <= 299  && currentSize >= 200) {
-      $(".#scoreValue").text(+100);
+      runningScore = runningScore + 100; 
+      $("#scoreValue").text("PERFECT CLICK! : "+runningScore); 
+      PERFECT = PERFECT + 1;
+      $("#PERFECT").text("PERFECT CLICK! : "+PERFECT);  
     } 
     else{
-      $("#scoreValue").text(+0);
+      alert("ERROR SCORE");
     }
   }
 
-var randomNumber = Math.floor(Math.random()*3);
-var gameLoop = setInterval(gameLoop, 11.3207547169811);
+//var randomNumber = Math.floor(Math.random()*3);
+//// TESTING PURPOSES
+var randomNumber = 1; // Start on middle circle!
+var gameLoop = setInterval(gameLoop, 11.3207547169811); // NORMAL SPEED - 106 BPM
+//var gameLoop = setInterval(gameLoop, 100); // TEST SPEED OF SCORING - SLOW
 
 function gameLoop(){
   switch(randomNumber) {
-      case 0:
+      // DO NOT!!!!!! clickOne, clickTwo or ClickThree here or you WILL GET DEAFENED - RIP :L
+      case 0:        
+          click1Valid = true; 
           retractCircle1();
           break;
       case 1:
+          click2Valid = true;
           retractCircle2();
           break;
       case 2:
+          click3Valid = true;
           retractCircle3();
           break;          
       default:
-          alert("Math Random Returned Invalid!");
+          alert("Math Random Returned Invalid Circle Choice!");
           break;
       }
 }
 
+// // THIS FUNCTION DOESNT WORK YET ??? < CHECK THIS FUNCTION 
+// function checkClickValid(){
+//   if (click1Valid == true){
+//     click2Valid = false;
+//     click3Valid = false;
+//     console.log("CLICK ONE IS READY")
+//     clickOne();
+//   }
+//   else if (click2Valid == true){
+//     click1Valid = false;
+//     click3Valid = false;
+//     console.log("CLICK ONE IS READY")
+//     clickTwo();
+//   }
+//   else if (click3Valid == true){
+//     click1Valid = false;
+//     click2Valid = false;
+//     console.log("CLICK ONE IS READY")
+//     clickThree();
+//   }
+// }
+// checkClickValid();
+
   function retractCircle1() {
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
-    ////CHECK what state the outer circle is at, for ACCURACY and SCORING
-    // if (currentSize <= 450  && currentSize >= 370 ) {
-    //   $(".button1").css("background-color","red");
-    // } 
-    // else if (currentSize <= 369  && currentSize >= 300) {
-    //   $(".button1").css("background-color","yellow");
-    // } 
-    // else if (currentSize <= 299  && currentSize >= 200) {
-    //   $(".button1").css("background-color","green");
-    // } 
-    // else{
-    //   $(".button1").css("background-color","black");
-    // }
+    //CHECK what state the outer circle is at, for ACCURACY and SCORING
+    if (currentSize <= 450  && currentSize >= 370 ) {
+      $(".circle1").css("background-color","red");
+    } 
+    else if (currentSize <= 369  && currentSize >= 300) {
+      $(".circle1").css("background-color","yellow");
+    } 
+    else if (currentSize <= 299  && currentSize >= 200) {
+      $(".circle1").css("background-color","green");
+    } 
+    else{
+      $(".button1").css("background-color","blue");
+    }
     if (currentSize === minSize) {
       audioElement.play();
       currentSize = 450;
@@ -185,7 +222,20 @@ function gameLoop(){
 
   function retractCircle2() {
     var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'Audio/whistle.wav');
+    audioElement.setAttribute('src', 'Audio/clap.wav');
+    //CHECK what state the outer circle is at, for ACCURACY and SCORING
+    if (currentSize <= 450  && currentSize >= 370 ) {
+      $(".circle2").css("background-color","red");
+    } 
+    else if (currentSize <= 369  && currentSize >= 300) {
+      $(".circle2").css("background-color","yellow");
+    } 
+    else if (currentSize <= 299  && currentSize >= 200) {
+      $(".circle2").css("background-color","green");
+    } 
+    else{
+      $(".circle2").css("background-color","blue");
+    }
     if (currentSize === minSize) {
       audioElement.play();
       currentSize = 450;
@@ -202,10 +252,22 @@ function gameLoop(){
 
   }
 
-
   function retractCircle3() {
     var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'Audio/normal.wav');
+    audioElement.setAttribute('src', 'Audio/clap.wav');
+    //CHECK what state the outer circle is at, for ACCURACY and SCORING
+    if (currentSize <= 450  && currentSize >= 370 ) {
+      $(".circle3").css("background-color","red");
+    } 
+    else if (currentSize <= 369  && currentSize >= 300) {
+      $(".circle3").css("background-color","yellow");
+    } 
+    else if (currentSize <= 299  && currentSize >= 200) {
+      $(".circle3").css("background-color","green");
+    } 
+    else{
+      $(".circle3").css("background-color","blue");
+    }
    if (currentSize === minSize) {
     audioElement.play();
     currentSize = 450;
