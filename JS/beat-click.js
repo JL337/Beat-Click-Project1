@@ -194,7 +194,7 @@ function clickOne(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
     audioElement.play();
-    $(this).css("background-color","white");
+    $(this).css("background-color","black");
     console.log("clickOne");
     checkStatus();
   });
@@ -210,7 +210,7 @@ function clickTwo(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/wood.wav');
     audioElement.play();
-    $(this).css("background-color","white");
+    $(this).css("background-color","black");
     console.log("clickTwo");
     checkStatus();
   });
@@ -226,7 +226,7 @@ function clickThree(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/drum.wav');
     audioElement.play();
-    $(this).css("background-color","white");
+    $(this).css("background-color","black");
     console.log("clickThree");
     checkStatus();
   });
@@ -326,7 +326,7 @@ function gameLoop(){
     if (currentSize === minSize) {
       audioElement.play();
       currentSize = 450;
-      console.log("CIRCLE 1 CLAP");
+      console.log("CIRCLE 1 DONE");
       decreasing == false;
       randomNumber = Math.floor(Math.random()*3);
       return;
@@ -358,7 +358,7 @@ function gameLoop(){
     if (currentSize === minSize) {
       audioElement.play();
       currentSize = 450;
-      console.log("CIRCLE 2 WHISTLE");
+      console.log("CIRCLE 2 DONE");
       decreasing == false;
       randomNumber = Math.floor(Math.random()*3);
       return;
@@ -390,7 +390,7 @@ function gameLoop(){
    if (currentSize === minSize) {
     audioElement.play();
     currentSize = 450;
-    console.log("CIRCLE 3 DRUM");
+    console.log("CIRCLE 3 DONE");
     decreasing == false;
     randomNumber = Math.floor(Math.random()*3);
     return;
