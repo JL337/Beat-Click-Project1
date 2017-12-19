@@ -76,21 +76,64 @@ $(document).ready(function () {
 
 $('#button01').keydown(function(event){
 // console.log(event.keyCode);
-console.log(event.keyCode);
-clickOne(event.keyCode);
+if (event.keyCode === 90){
+  console.log(event.keyCode);
+  var audioElement = document.createElement('audio');
+  audioElement.setAttribute('src', 'Audio/clap.wav');
+  audioElement.play();
+  $(this).css("background-color","black");
+  console.log("button01 CLAP");
+  }
 });
 
-// $('#button02').keydown(function(event){
-// // console.log(event.keyCode);
+$('#button01').keyup(function(event){
 // console.log(event.keyCode);
-// clickOne(event.keyCode);
-// });
+  if (event.keyCode === 90){
+    console.log(event.keyCode);
+    $(this).css("background-color","transparent");
+  }
+});
 
-// $('#button03').keydown(function(event){
-// // console.log(event.keyCode);
+$('#button02').keydown(function(event){
 // console.log(event.keyCode);
-// clickOne(event.keyCode);
-// });
+if (event.keyCode === 88){
+  console.log(event.keyCode);
+  var audioElement = document.createElement('audio');
+  audioElement.setAttribute('src', 'Audio/wood.wav');
+  audioElement.play();
+  $(this).css("background-color","black");
+  console.log("button02 WOOD");
+  }
+});
+
+$('#button02').keyup(function(event){
+// console.log(event.keyCode);
+  if (event.keyCode === 88){
+    console.log(event.keyCode);
+    $(this).css("background-color","transparent");
+  }
+});
+
+$('#button03').keydown(function(event){
+// console.log(event.keyCode);
+if (event.keyCode === 67){
+  console.log(event.keyCode);
+  var audioElement = document.createElement('audio');
+  audioElement.setAttribute('src', 'Audio/drum.wav');
+  audioElement.play();
+  $(this).css("background-color","black");
+  console.log("button02 DRUM");
+  }
+});
+
+$('#button02').keyup(function(event){
+// console.log(event.keyCode);
+  if (event.keyCode === 67){
+    console.log(event.keyCode);
+    $(this).css("background-color","transparent");
+  }
+});
+
 
 
 
@@ -115,22 +158,22 @@ var OK = 0;
 var PERFECT = 0;
 
 
-function clickOne(event){      
-  switch(event.keyCode){
-    case 90:
-        if ($("#button01").is(":focus")){
-          $("#button01").keyup(function() {
-            $(this).css("background-color","transparent");
-          })
-          $("#button01").keydown(function() {
-          var audioElement = document.createElement('audio');
-          audioElement.setAttribute('src', 'Audio/clap.wav');
-          audioElement.play();
-          $(this).css("background-color","black");
-          console.log("button01 registered");
-          //checkStatus();
-          });   
-        }
+// function clickOne(event){      
+//   switch(event.keyCode){
+//     case 90:
+//         if ($("#button01").is(":focus")){
+//           $("#button01").keyup(function() {
+//             $(this).css("background-color","transparent");
+//           })
+//           $("#button01").keydown(function() {
+//           var audioElement = document.createElement('audio');
+//           audioElement.setAttribute('src', 'Audio/clap.wav');
+//           audioElement.play();
+//           $(this).css("background-color","black");
+//           console.log("button01 registered");
+//           //checkStatus();
+//           });   
+//         }
     //break;
     // case 88:
     //     if ($("#button02").is(":focus")){
@@ -162,8 +205,8 @@ function clickOne(event){
     //       });   
     //     }
     // break;
-  }
-}
+//   }
+// }
 // clickOne();
 
 //Click to return to Home page
@@ -260,11 +303,6 @@ audioElement.addEventListener("timeupdate", function() {
         m = m < 10 ? "0"+m : m;  // minutes
         timeRemain.innerHTML = "Time Left: "+m+":"+s; //append minutes and seconds left to targeted html id
 });
-
-
-// $(button1).keydown(function(e){
-//       console.log(e.keyCode);
-//     });
 
 // function clickOne(keyNum){      
 //   switch(keyNum){
