@@ -171,7 +171,7 @@ setTimeout(function () {
 //Play Main Song AND check duration with clock.
 randomAudio = Math.floor(Math.random()*8); // PURE RANDOM OUT OF 9 SONGS
 //randomAudio = 8; //SUMMER TRACK
-randomAudio = 0; //RETRO-SOUL TRACK -- GOOD TIMING!
+//randomAudio = 0; //RETRO-SOUL TRACK -- GOOD TIMING!
 //randomAudio = 6; // PUT EXACT CASE NUMBER FOR EXACT SONG!
 //randomAudio = 9; // TEST CLICKS ONLY
 
@@ -244,7 +244,7 @@ function clickOne(){
   });
   $(".button1").mousedown(function() {
     var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'Audio/clap.wav');
+    audioElement.setAttribute('src', 'Audio/wood.wav');
     audioElement.play();
     $(this).css("background-color","black");
     console.log("clickOne");
@@ -276,7 +276,7 @@ function clickThree(){
   })
     .mousedown(function() {
     var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'Audio/drum.wav');
+    audioElement.setAttribute('src', 'Audio/wood.wav');
     audioElement.play();
     $(this).css("background-color","black");
     console.log("clickThree");
@@ -360,22 +360,22 @@ function gameLoop(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
     //CHECK what state the outer circle is at, for ACCURACY and SCORING
-    if (currentSize <= 450  && currentSize >= 370 ) {
-      $("#button01").focus();
-      $(".circle1").css("background-color","red");
-    } 
-    else if (currentSize <= 369  && currentSize >= 300) {
-      $("#button01").focus();
-      $(".circle1").css("background-color","yellow");
-    } 
-    else if (currentSize <= 299  && currentSize >= 200) {
-      $("#button01").focus();
-      $(".circle1").css("background-color","green");
-    } 
-    else{
-      $("#button01").focus();
-      $("#button01").css("background-color","blue");
-    }
+    // if (currentSize <= 450  && currentSize >= 370 ) {
+    //   $("#button01").focus();
+    //   $(".circle1").css("background-color","red");
+    // } 
+    // else if (currentSize <= 369  && currentSize >= 300) {
+    //   $("#button01").focus();
+    //   $(".circle1").css("background-color","yellow");
+    // } 
+    // else if (currentSize <= 299  && currentSize >= 200) {
+    //   $("#button01").focus();
+    //   $(".circle1").css("background-color","green");
+    // } 
+    // else{
+    //   $("#button01").focus();
+    //   $("#button01").css("background-color","blue");
+    // }
     if (currentSize === minSize) {
       audioElement.play();
       currentSize = 450;
@@ -396,22 +396,22 @@ function gameLoop(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
     //CHECK what state the outer circle is at, for ACCURACY and SCORING
-    if (currentSize <= 450  && currentSize >= 370 ) {
-      $("#button02").focus();
-      $(".circle2").css("background-color","red");
-    } 
-    else if (currentSize <= 369  && currentSize >= 300) {
-      $("#button02").focus();
-      $(".circle2").css("background-color","yellow");
-    } 
-    else if (currentSize <= 299  && currentSize >= 200) {
-      $("#button02").focus();
-      $(".circle2").css("background-color","green");
-    } 
-    else{
-      $("#button02").focus();
-      $(".circle2").css("background-color","blue");
-    }
+    // if (currentSize <= 450  && currentSize >= 370 ) {
+    //   $("#button02").focus();
+    //   $(".circle2").css("background-color","red");
+    // } 
+    // else if (currentSize <= 369  && currentSize >= 300) {
+    //   $("#button02").focus();
+    //   $(".circle2").css("background-color","yellow");
+    // } 
+    // else if (currentSize <= 299  && currentSize >= 200) {
+    //   $("#button02").focus();
+    //   $(".circle2").css("background-color","green");
+    // } 
+    // else{
+    //   $("#button02").focus();
+    //   $(".circle2").css("background-color","blue");
+    // }
     if (currentSize === minSize) {
       audioElement.play();
       currentSize = 450;
@@ -432,22 +432,22 @@ function gameLoop(){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
     //CHECK what state the outer circle is at, for ACCURACY and SCORING
-    if (currentSize <= 450  && currentSize >= 370 ) {
-      $("#button03").focus();
-      $(".circle3").css("background-color","red");
-    } 
-    else if (currentSize <= 369  && currentSize >= 300) {
-      $("#button03").focus();
-      $(".circle3").css("background-color","yellow");
-    } 
-    else if (currentSize <= 299  && currentSize >= 200) {
-      $("#button03").focus();
-      $(".circle3").css("background-color","green");
-    } 
-    else{
-      $("#button03").focus();
-      $(".circle3").css("background-color","blue");
-    }
+    // if (currentSize <= 450  && currentSize >= 370 ) {
+    //   $("#button03").focus();
+    //   $(".circle3").css("background-color","red");
+    // } 
+    // else if (currentSize <= 369  && currentSize >= 300) {
+    //   $("#button03").focus();
+    //   $(".circle3").css("background-color","yellow");
+    // } 
+    // else if (currentSize <= 299  && currentSize >= 200) {
+    //   $("#button03").focus();
+    //   $(".circle3").css("background-color","green");
+    // } 
+    // else{
+    //   $("#button03").focus();
+    //   $(".circle3").css("background-color","blue");
+    // }
    if (currentSize === minSize) {
     audioElement.play();
     currentSize = 450;
@@ -463,6 +463,6 @@ function gameLoop(){
   $(".circle3").css("width", currentSize);    
   }
 
-}, 1600); //DELAY ALL WHEN LOAD PLAY-PAGE, DELAY 1.5 seconds.
+}, 1800); //DELAY ALL WHEN LOAD PLAY-PAGE, DELAY 1.5 seconds.
 
 });
