@@ -70,10 +70,6 @@
 
 $(document).ready(function () {
 
-// $("#button4").addEventListener("keydown", function(e){
-//       console.log(e.keyCode);
-//   });
-
 $('#button01').keydown(function(event){
 // console.log(event.keyCode);
 if (event.keyCode === 90){
@@ -134,9 +130,6 @@ $('#button02').keyup(function(event){
   }
 });
 
-
-
-
 console.log( "Javascript Ready To Go!" ); 
 console.log( "START" );
 
@@ -157,58 +150,6 @@ var MISS = 0;
 var OK = 0;
 var PERFECT = 0;
 
-
-// function clickOne(event){      
-//   switch(event.keyCode){
-//     case 90:
-//         if ($("#button01").is(":focus")){
-//           $("#button01").keyup(function() {
-//             $(this).css("background-color","transparent");
-//           })
-//           $("#button01").keydown(function() {
-//           var audioElement = document.createElement('audio');
-//           audioElement.setAttribute('src', 'Audio/clap.wav');
-//           audioElement.play();
-//           $(this).css("background-color","black");
-//           console.log("button01 registered");
-//           //checkStatus();
-//           });   
-//         }
-    //break;
-    // case 88:
-    //     if ($("#button02").is(":focus")){
-    //       $("#button02").keyup(function() {
-    //         $(this).css("background-color","transparent");
-    //       })
-    //       $("#button02").keydown(function() {
-    //       var audioElement = document.createElement('audio');
-    //       audioElement.setAttribute('src', 'Audio/wood.wav');
-    //       audioElement.play();
-    //       $(this).css("background-color","black");
-    //       console.log("button02 registered");
-    //       //checkStatus();
-    //       });   
-    //     }
-    // break;
-    // case 67:
-    //     if ($("#button03").is(":focus")){
-    //       $("#button03").keyup(function() {
-    //         $(this).css("background-color","transparent");
-    //       })
-    //       $("#button03").keydown(function() {
-    //       var audioElement = document.createElement('audio');
-    //       audioElement.setAttribute('src', 'Audio/drum.wav');
-    //       audioElement.play();
-    //       $(this).css("background-color","black");
-    //        console.log("button03 registered");
-    //       //checkStatus();
-    //       });   
-    //     }
-    // break;
-//   }
-// }
-// clickOne();
-
 //Click to return to Home page
 function clickToHome(){
     home.addEventListener("click", function() 
@@ -228,19 +169,11 @@ clickToHome();
 
 setTimeout(function () {
 //Play Main Song AND check duration with clock.
-
 //randomAudio = Math.floor(Math.random()*8); // PURE RANDOM OUT OF 9 SONGS
 //randomAudio = 8; //SUMMER TRACK
 randomAudio = 4; //RETRO-SOUL TRACK -- GOOD TIMING!
-
 //randomAudio = 6; // PUT EXACT CASE NUMBER FOR EXACT SONG!
 //randomAudio = 9; // TEST CLICKS ONLY
-
-//var randomAudio = 7;
-
-// }function songData(){
-
-
 
 var songsList = [{
   file: "bensound-badass.mp3", //0
@@ -304,71 +237,52 @@ audioElement.addEventListener("timeupdate", function() {
         timeRemain.innerHTML = "Time Left: "+m+":"+s; //append minutes and seconds left to targeted html id
 });
 
-// function clickOne(keyNum){      
-//   switch(keyNum){
-//     case 90:
-//         $("#button4").keyup(function() {
-//           $(this).css("background-color","transparent");
-//         })
-//         $("#button4").keydown(function() {
-//         var audioElement = document.createElement('audio');
-//         audioElement.setAttribute('src', 'Audio/clap.wav');
-//         audioElement.play();
-//         $(this).css("background-color","black");
-//         console.log("clickOne");
-//         checkStatus();
-//       });   
-//   }
-// }
-// clickOne(90);
+function clickOne(){      
+  $(".button1").mouseup(function() {
+    $(this).css("background-color","transparent");
+  });
+  $(".button1").mousedown(function() {
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'Audio/clap.wav');
+    audioElement.play();
+    $(this).css("background-color","black");
+    console.log("clickOne");
+    checkStatus();
+  });
+}
+clickOne();
 
+function clickTwo(){
+  $(".button2")
+    .mouseup(function() {
+    $(this).css("background-color","transparent");
+  })
+    .mousedown(function() {
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'Audio/wood.wav');
+    audioElement.play();
+    $(this).css("background-color","black");
+    console.log("clickTwo");
+    checkStatus();
+  });
+}
+clickTwo();
 
-// function clickOne(){      
-//   $(".button1").mouseup(function() {
-//     $(this).css("background-color","transparent");
-//   });
-//   $(".button1").mousedown(function() {
-//     var audioElement = document.createElement('audio');
-//     audioElement.setAttribute('src', 'Audio/clap.wav');
-//     audioElement.play();
-//     $(this).css("background-color","black");
-//     console.log("clickOne");
-//     checkStatus();
-//   });
-// }
-// clickOne();
-
-// function clickTwo(){
-//   $(".button2")
-//     .mouseup(function() {
-//     $(this).css("background-color","transparent");
-//   })
-//     .mousedown(function() {
-//     var audioElement = document.createElement('audio');
-//     audioElement.setAttribute('src', 'Audio/wood.wav');
-//     audioElement.play();
-//     $(this).css("background-color","black");
-//     console.log("clickTwo");
-//     checkStatus();
-//   });
-// }
-// clickTwo();
-
-// function clickThree(){
-//   $(".button3")
-//     .mouseup(function() {
-//     $(this).css("background-color","transparent");
-//   })
-//     .mousedown(function() {
-//     var audioElement = document.createElement('audio');
-//     audioElement.setAttribute('src', 'Audio/drum.wav');
-//     audioElement.play();
-//     $(this).css("background-color","black");
-//     console.log("clickThree");
-//     checkStatus();
-//   });
-// }
-// clickThree();
+function clickThree(){
+  $(".button3")
+    .mouseup(function() {
+    $(this).css("background-color","transparent");
+  })
+    .mousedown(function() {
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'Audio/drum.wav');
+    audioElement.play();
+    $(this).css("background-color","black");
+    console.log("clickThree");
+    checkStatus();
+  });
+}
+clickThree();
 
   function checkStatus(){  // SEMI WORKING
     if (currentSize <= 450  && currentSize >= 370 ) {
@@ -404,15 +318,12 @@ function gameLoop(){
   switch(randomNumber) {
       // DO NOT!!!!!! clickOne, clickTwo or ClickThree here or you WILL GET DEAFENED - RIP :L
       case 0:        
-          click1Valid = true; 
           retractCircle1();
           break;
       case 1:
-          click2Valid = true;
           retractCircle2();
           break;
       case 2:
-          click3Valid = true;
           retractCircle3();
           break;          
       default:
