@@ -1,9 +1,70 @@
 //var msPerBeat = (1000*60)/ bpm
 //ms_per_beat = 1000 * 60 / bpm
+
+
+// Filename: bensound-badass.mp3
+// Type: audio/mp3
+// Size: 1491kb
+// BPM: 120
+// MS: 500 ms
+// var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
+
+// Filename: bensound-dance.mp3
+// Type: audio/mp3
+// Size: 2424kb
+// BPM: 135
+// MS: 444.44 ms
+// var gameLoop = setInterval(gameLoop, 8.8888); // Divide MS/50
+
+// Filename: bensound-goinghigher.mp3
+// Type: audio/mp3
+// Size: 3343kb
+// BPM: 121
+// MS: 495.87 ms
+// var gameLoop = setInterval(gameLoop, 9.9174); // Divide MS/50
+
+// Filename: bensound-happyrock.mp3
+// Type: audio/mp3
+// Size: 1447kb
+// BPM: 180
+// MS: 333.33 ms
+// var gameLoop = setInterval(gameLoop, 6.6666); // Divide MS/50
+
+// Filename: bensound-house.mp3
+// Type: audio/mp3
+// Size: 3549kb
+// BPM: 120
+// MS: 500 ms
+// var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
+
+// Filename: bensound-moose.mp3
+// Type: audio/mp3
+// Size: 2198kb
+// BPM: 120
+// MS: 500 ms
+// var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
+
+// Filename: bensound-retrosoul.mp3
+// Type: audio/mp3
+// Size: 2960kb
+// BPM: 107
+// MS: 560.74 ms
+// var gameLoop = setInterval(gameLoop, 11.2148); // Divide MS/50
+
+// Filename: bensound-rumble.mp3
+// Type: audio/mp3
+// Size: 2116kb
+// BPM: 140
+// MS: 428.57 ms
+// var gameLoop = setInterval(gameLoop, 8.5714); // Divide MS/50
+
 // Filename: bensound-summer.mp3
 // Type: audio/mp3
 // Size: 3398kb
 // BPM: 106
+// MS: 566.04 ms
+// var gameLoop = setInterval(gameLoop, 11.3207547169811); // Divide MS/50
+
 // var interval = setInterval(oneBeat, 11.32);
 // 566miliseconds for one beat.
 //Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
@@ -47,10 +108,58 @@ clickToHome();
 //  }
 // clickToScores();
 
+
 setTimeout(function () {
-//Play Main Song AND check duration with clock.
 var audioElement = document.createElement('audio');
-audioElement.setAttribute('src', 'Audio/bensound-summer.mp3');
+//Play Main Song AND check duration with clock.
+
+// randomAudio = Math.floor(Math.random()*8); // PURE RANDOM OUT OF 9 SONGS
+//randomAudio = 8; //SUMMER TRACK
+//randomAudio = 6; //RETRO-SOUL TRACK -- GOOD TIMING!
+
+randomAudio = 6; // PUT EXACT CASE NUMBER FOR EXACT SONG!
+
+switch(randomAudio) {
+    case 0:        
+        audioElement.setAttribute('src', 'Audio/bensound-badass.mp3');
+        var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
+        break;
+    case 1:
+        audioElement.setAttribute('src', 'Audio/bensound-dance.mp3');
+        var gameLoop = setInterval(gameLoop, 8.8888); // Divide MS/50
+        break;
+    case 2:
+        audioElement.setAttribute('src', 'Audio/bensound-goinghigher.mp3');
+        var gameLoop = setInterval(gameLoop, 9.9174); // Divide MS/50
+        break; 
+    case 3:
+        audioElement.setAttribute('src', 'Audio/bensound-happyrock.mp3');
+        var gameLoop = setInterval(gameLoop, 6.6666); // Divide MS/50
+        break;  
+    case 4:
+        audioElement.setAttribute('src', 'Audio/bensound-house.mp3');
+        var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
+        break;  
+    case 5:
+        audioElement.setAttribute('src', 'Audio/bensound-moose.mp3');
+        var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
+        break; 
+    case 6:
+        audioElement.setAttribute('src', 'Audio/bensound-retrosoul.mp3');
+        var gameLoop = setInterval(gameLoop, 11.2148); // Divide MS/50
+        break;  
+     case 7:
+        audioElement.setAttribute('src', 'Audio/bensound-rumble.mp3');
+        var gameLoop = setInterval(gameLoop, 8.5714); // Divide MS/50
+        break;  
+    case 8:
+        audioElement.setAttribute('src', 'Audio/bensound-summer.mp3');
+        var gameLoop = setInterval(gameLoop, 11.3208); // Divide MS/50 
+        break;                   
+    default:
+        alert("Audio Choice is Invalid!");
+        break;
+    }
 audioElement.play();
 audioElement.addEventListener("timeupdate", function() {
     var timeleft = document.getElementById('timeRemain'), //assign new variable time left
@@ -141,7 +250,7 @@ clickThree();
 //var randomNumber = Math.floor(Math.random()*3);
 //// TESTING PURPOSES
 var randomNumber = 1; // Start on middle circle!
-var gameLoop = setInterval(gameLoop, 11.3207547169811); // NORMAL SPEED - 106 BPM
+//var gameLoop = setInterval(gameLoop, 11.3207547169811); // NORMAL SPEED - 106 BPM
 //var gameLoop = setInterval(gameLoop, 100); // TEST SPEED OF SCORING - SLOW
 
 function gameLoop(){
