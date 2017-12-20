@@ -87,8 +87,7 @@ button:focus {outline:0;}
 
 /*Current Score box*/
 .scoreBox{
-  margin-top: 40px;
-  background-color: transparent;
+  background-color: black;
   text-align:center;
   color:#e2eaf3;
   font-family: 'Verdana', sans-serif;
@@ -96,7 +95,15 @@ button:focus {outline:0;}
   color:#e2eaf3;
   font-weight:bold;
   text-decoration:none;
+/*  border-radius: 40px;
+  padding-bottom: 3px;
+  padding-top: 0.06px;
+  margin-bottom: 10px;*/
 }
+
+/*#scoreValue{
+padding-bottom: -50px;
+}*/
 
 /*Click to return back to home page, on start-up*/
 #home{
@@ -113,8 +120,7 @@ button:focus {outline:0;}
 
 /*Short Description of the "Return Home" button*/
 #returnDesc{
-  margin-top: 0px;
-  background-color: transparent;
+  background-color: black;
   text-align:center;
   color:#e2eaf3;
   font-family: 'Verdana', sans-serif;
@@ -126,7 +132,6 @@ button:focus {outline:0;}
 
 /*Display time left on currently playing song*/
 #timeleft{
-  margin-top: 0px;
   background-color: transparent;
   text-align:center;
   color:#e2eaf3;
@@ -152,7 +157,7 @@ button:focus {outline:0;}
 
 /*Adjust the background image*/
 body{ 
-  background: url('../Images/5.jpg') no-repeat center center fixed;
+  background: url('../Images/9.png') no-repeat center center fixed;
   background-size: cover;
 }
 

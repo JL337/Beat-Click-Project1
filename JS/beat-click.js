@@ -24,7 +24,7 @@ function clickToHome(){
     {
       location.href = 'start.html';
     });
- }
+}
 clickToHome();
 //Ends the game if 5 misses have occured or current audio duration runs down to 00:00
 function endTheGame(){ 
@@ -34,15 +34,15 @@ function endTheGame(){
     }    
 // DELAY all below by 1800 miliseconds, see BOTTOM most code for delay length.
 setTimeout(function () { 
-randomAudio = Math.floor(Math.random()*9); // Choosen random song from tracks.
+//randomAudio = Math.floor(Math.random()*9); // Choosen random song from tracks.
 //randomAudio = 9; // TEST - CLICKS ONLY SLOW
 //randomAudio = 8; // SUMMER 
-//randomAudio = 6; // RETROSOUL
+randomAudio = 6; // RETROSOUL
 //Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
 //Calculation for one interval above. ^
 var songsList = [{
   file: "bensound-badass.mp3", //0
-  speed: 10, //interval speed of retractcircles
+  speed: 6, //interval speed of retractcircles
   //background: "34537145_p0.png",
   },
   {
@@ -82,10 +82,10 @@ var songsList = [{
   speed: 60,
   },
 ]
-// choose data from the string
+// Choose data from the array
 var song = songsList[randomAudio]; 
 var audioElement = document.createElement('audio');
-// feed data from the array and append them to other functions
+// Feed data from the array and append them to other functions
 audioElement.setAttribute('src', 'Audio/'+song.file);
 var gameLoop = setInterval(gameLoop, +song.speed); // This controls how fast each outer circle retracts
 $("#songName").text("Now Playing: "+song.file);
@@ -106,6 +106,7 @@ function timer(){
         s = s < 10 ? "0"+s : s; // seconds
         m = m < 10 ? "0"+m : m;  // minutes
         timeRemain.innerHTML = "Time Left: "+m+":"+s; //append minutes and seconds left to targeted html id
+        
         if (timeLeft === 0){
           endTheGame();
           return;
@@ -228,18 +229,21 @@ function gameLoop(){
     if (currentSize <= 450  && currentSize >= 310 ) {
       $(button1).focus();
       $(".circle1").css("background-color","red");
+      //$(".circle1").css("background-color","#393037");
     } 
     else if (currentSize <= 309  && currentSize >= 240) {
       $(button1).focus();
       $(".circle1").css("background-color","yellow");
+      //$(".circle1").css("background-color","#665763");
     } 
-    else if (currentSize <= 239  && currentSize >= 200) {
+    else if (currentSize <= 239  && currentSize >= 201) {
       $(button1).focus();
       $(".circle1").css("background-color","green");
+      //$(".circle1").css("background-color","#B697B0");
     } 
     else{
       $(button1).focus();
-      $(".circle1").css("background-color","blue");
+      $(".circle1").css("background-color","transparent");
     }
     if (currentSize === minSize) {
       audioElement.play();
@@ -264,18 +268,21 @@ function gameLoop(){
     if (currentSize <= 450  && currentSize >= 310 ) {
       $(button2).focus();
       $(".circle2").css("background-color","red");
+      //$(".circle2").css("background-color","#393037");
     } 
     else if (currentSize <= 309  && currentSize >= 240) {
       $(button2).focus();
       $(".circle2").css("background-color","yellow");
+      //$(".circle2").css("background-color","#665763");
     } 
-    else if (currentSize <= 239  && currentSize >= 200) {
+    else if (currentSize <= 239  && currentSize >= 201) {
       $(button2).focus();
       $(".circle2").css("background-color","green");
+      //$(".circle2").css("background-color","#B697B0");
     } 
     else{
       $(button2).focus();
-      $(".circle2").css("background-color","blue");
+      $(".circle2").css("background-color","transparent");
     }
     if (currentSize === minSize) {
       audioElement.play();
@@ -300,18 +307,21 @@ function gameLoop(){
     if (currentSize <= 450  && currentSize >= 310 ) {
       $(button3).focus();
       $(".circle3").css("background-color","red");
+      //$(".circle3").css("background-color","#393037");
     } 
     else if (currentSize <= 309  && currentSize >= 240) {
       $(button3).focus();
       $(".circle3").css("background-color","yellow");
+      //$(".circle3").css("background-color","#665763");
     } 
-    else if (currentSize <= 239  && currentSize >= 200) {
+    else if (currentSize <= 239  && currentSize >= 201) {
       $(button3).focus();
       $(".circle3").css("background-color","green");
+      //$(".circle3").css("background-color","#B697B0");
     } 
     else{
       $(button3).focus();
-      $(".circle3").css("background-color","blue");
+      $(".circle3").css("background-color","transparent");
     }
    if (currentSize === minSize) {
     audioElement.play();
