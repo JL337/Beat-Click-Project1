@@ -108,15 +108,15 @@ function endTheGame(){
 // DELAY all below by 1800 miliseconds, see below.
 setTimeout(function () { 
 
-//randomAudio = Math.floor(Math.random()*9); // Choosen random song from tracks.
-//randomAudio = 9; // TEST - CLICKS ONLY SLOW
-randomAudio = 8; // SUMMER 
+randomAudio = Math.floor(Math.random()*9); // Choosen random song from tracks.
+//randomAudio = 0; // TEST - CLICKS ONLY SLOW
+//randomAudio = 8; // SUMMER 
 //randomAudio = 6; // RETROSOUL
 
 var songsList = [{
   file: "bensound-badass.mp3", //0
   speed: 10, //interval speed of retractcircles
-  //background: "'34537145_p0.png'",
+  background: "34537145_p0.png",
   },
   {
   file: "bensound-dance.mp3", //1
@@ -161,7 +161,7 @@ var audioElement = document.createElement('audio');
 audioElement.setAttribute('src', 'Audio/'+song.file);
 var gameLoop = setInterval(gameLoop, +song.speed);
 $("#songName").text("Now Playing: "+song.file);
-//$("html").css("background: url(../Images/"+song.background+")"); //change background?
+// $("html").css("background", 'Images/'+song.background);
 
 //Controls the timer display on play-screen.
 function timer(){
@@ -313,7 +313,7 @@ function gameLoop(){
       $(".circle1").css("background-color","blue");
     }
     if (currentSize === minSize) {
-     // audioElement.play();
+      audioElement.play();
       currentSize = 450;
       console.log("CIRCLE 1 DONE");
       decreasing == false;
@@ -350,7 +350,7 @@ function gameLoop(){
       $(".circle2").css("background-color","blue");
     }
     if (currentSize === minSize) {
-      //audioElement.play();
+      audioElement.play();
       currentSize = 450;
       console.log("CIRCLE 2 DONE");
       decreasing == false;
@@ -387,7 +387,7 @@ function gameLoop(){
       $(".circle3").css("background-color","blue");
     }
    if (currentSize === minSize) {
-    //audioElement.play();
+    audioElement.play();
     currentSize = 450;
     console.log("CIRCLE 3 DONE");
     decreasing == false;
