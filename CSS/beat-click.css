@@ -50,11 +50,12 @@
   margin: 5px;
 }
 
-/*This is the static circle*/
+
 
 button:focus {outline:0;} 
-/*REMOVES the horrible blue background on button click!*/
+/*removes the blue background on button click!*/
 
+/*This is the static circle*/
 .button1 {
   z-index: 2;
   position: absolute;
