@@ -3,7 +3,6 @@ Pseudo Code:
 To check, HTML Pages:
 1)HTML introduction page
 2)HTML in-play page
-3)HTML game over, score screen
 
 Functionality:
 1) Have at least ONE circle with its respective outer circle
@@ -24,4 +23,76 @@ How to, steps:
 8) Repeat from 3-7, when player makes 5 mistakes, 5 RED,BAD! then go to 10. OR go to 10, when song ENDS.
 9) Save current score, and go to end of score screen.
 10) Link end of score screen to the intro page.
+
+
+
+//var msPerBeat = (1000*60)/ bpm
+//ms_per_beat = 1000 * 60 / bpm
+
+// Filename: bensound-badass.mp3
+// Type: audio/mp3
+// Size: 1491kb
+// BPM: 120
+// MS: 500 ms
+// var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
+
+// Filename: bensound-dance.mp3
+// Type: audio/mp3
+// Size: 2424kb
+// BPM: 135
+// MS: 444.44 ms
+// var gameLoop = setInterval(gameLoop, 8.8888); // Divide MS/50
+
+// Filename: bensound-goinghigher.mp3
+// Type: audio/mp3
+// Size: 3343kb
+// BPM: 121
+// MS: 495.87 ms
+// var gameLoop = setInterval(gameLoop, 9.9174); // Divide MS/50
+
+// Filename: bensound-happyrock.mp3
+// Type: audio/mp3
+// Size: 1447kb
+// BPM: 180
+// MS: 333.33 ms
+// var gameLoop = setInterval(gameLoop, 6.6666); // Divide MS/50
+
+// Filename: bensound-house.mp3
+// Type: audio/mp3
+// Size: 3549kb
+// BPM: 120
+// MS: 500 ms
+// var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
+
+// Filename: bensound-moose.mp3
+// Type: audio/mp3
+// Size: 2198kb
+// BPM: 120
+// MS: 500 ms
+// var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
+
+// Filename: bensound-retrosoul.mp3
+// Type: audio/mp3
+// Size: 2960kb
+// BPM: 107
+// MS: 560.74 ms
+// var gameLoop = setInterval(gameLoop, 11.2148); // Divide MS/50
+
+// Filename: bensound-rumble.mp3
+// Type: audio/mp3
+// Size: 2116kb
+// BPM: 140
+// MS: 428.57 ms
+// var gameLoop = setInterval(gameLoop, 8.5714); // Divide MS/50
+
+// Filename: bensound-summer.mp3
+// Type: audio/mp3
+// Size: 3398kb
+// BPM: 106
+// MS: 566.04 ms
+// var gameLoop = setInterval(gameLoop, 11.3207547169811); // Divide MS/50
+
+//Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
+//Calculation for one interval above. ^
+
 

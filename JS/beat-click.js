@@ -1,81 +1,10 @@
-//var msPerBeat = (1000*60)/ bpm
-//ms_per_beat = 1000 * 60 / bpm
-
-// Filename: bensound-badass.mp3
-// Type: audio/mp3
-// Size: 1491kb
-// BPM: 120
-// MS: 500 ms
-// var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
-
-// Filename: bensound-dance.mp3
-// Type: audio/mp3
-// Size: 2424kb
-// BPM: 135
-// MS: 444.44 ms
-// var gameLoop = setInterval(gameLoop, 8.8888); // Divide MS/50
-
-// Filename: bensound-goinghigher.mp3
-// Type: audio/mp3
-// Size: 3343kb
-// BPM: 121
-// MS: 495.87 ms
-// var gameLoop = setInterval(gameLoop, 9.9174); // Divide MS/50
-
-// Filename: bensound-happyrock.mp3
-// Type: audio/mp3
-// Size: 1447kb
-// BPM: 180
-// MS: 333.33 ms
-// var gameLoop = setInterval(gameLoop, 6.6666); // Divide MS/50
-
-// Filename: bensound-house.mp3
-// Type: audio/mp3
-// Size: 3549kb
-// BPM: 120
-// MS: 500 ms
-// var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
-
-// Filename: bensound-moose.mp3
-// Type: audio/mp3
-// Size: 2198kb
-// BPM: 120
-// MS: 500 ms
-// var gameLoop = setInterval(gameLoop, 10); // Divide MS/50
-
-// Filename: bensound-retrosoul.mp3
-// Type: audio/mp3
-// Size: 2960kb
-// BPM: 107
-// MS: 560.74 ms
-// var gameLoop = setInterval(gameLoop, 11.2148); // Divide MS/50
-
-// Filename: bensound-rumble.mp3
-// Type: audio/mp3
-// Size: 2116kb
-// BPM: 140
-// MS: 428.57 ms
-// var gameLoop = setInterval(gameLoop, 8.5714); // Divide MS/50
-
-// Filename: bensound-summer.mp3
-// Type: audio/mp3
-// Size: 3398kb
-// BPM: 106
-// MS: 566.04 ms
-// var gameLoop = setInterval(gameLoop, 11.3207547169811); // Divide MS/50
-
-
-//Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
-//Calculation for one interval above. ^
-
 $(document).ready(function () {
-
 console.log( "Javascript Ready To Go!" ); 
 console.log( "START" );
 
-var currentSize = 450; // current size of the outer circle
-var minSize = 200; // the minimum size of the outer circle
-var decreasing = true; // while true the outer circle with decrease in size
+var currentSize = 450; // Current size of the outer circle
+var minSize = 200; // The minimum size of the outer circle
+var decreasing = true; // While true the outer circle with decrease in size
 var button1 = $(".button1");
 var button2 = $(".button2");
 var button3 = $(".button3");
@@ -83,13 +12,13 @@ var circle1 = $(".circle1");
 var circle2 = $(".circle2");
 var circle3 = $(".circle3");
 var runningScore = 0; //total score so far gained
-var MISS = 0; // MISSED clicks
-var OK = 0; // OK clicks
-var PERFECT = 0; // PERFECT clicks
-var randomNumber = Math.floor(Math.random()*3); //chooses a random circle next
-var clickFired = false; // checks if click has been pressed
+var MISS = 0; // MISSED clicks - Score 10
+var OK = 0; // OK clicks - Score 59
+var PERFECT = 0; // PERFECT clicks - Score 100
+var randomNumber = Math.floor(Math.random()*3); //Chooses a random circle next to retract
+var clickFired = false; // Checks if click has been pressed already
 
-//Click to return to start page
+//Click "Return Home", to return to start page
 function clickToHome(){
     home.addEventListener("click", function() 
     {
@@ -97,26 +26,24 @@ function clickToHome(){
     });
  }
 clickToHome();
-
-//Ends the game if 5 misses have occured or current audio duration runs down to 0
+//Ends the game if 5 misses have occured or current audio duration runs down to 00:00
 function endTheGame(){ 
       alert("Game Over! Your Final Score is: "+runningScore);
       location.href = 'start.html';
       return;
-    }
-
-// DELAY all below by 1800 miliseconds, see below.
+    }    
+// DELAY all below by 1800 miliseconds, see BOTTOM most code for delay length.
 setTimeout(function () { 
-
 randomAudio = Math.floor(Math.random()*9); // Choosen random song from tracks.
 //randomAudio = 0; // TEST - CLICKS ONLY SLOW
 //randomAudio = 8; // SUMMER 
 //randomAudio = 6; // RETROSOUL
-
+//Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
+//Calculation for one interval above. ^
 var songsList = [{
   file: "bensound-badass.mp3", //0
   speed: 10, //interval speed of retractcircles
-  background: "34537145_p0.png",
+  //background: "34537145_p0.png",
   },
   {
   file: "bensound-dance.mp3", //1
@@ -152,14 +79,15 @@ var songsList = [{
   },
   {
   file: "bensound-happyrock.mp3", //9 - TEST ONLY
-  speed: 50,
+  speed: 60,
   },
 ]
-var song = songsList[randomAudio];
+// choose data from the string
+var song = songsList[randomAudio]; 
 var audioElement = document.createElement('audio');
-
+// feed data from the array and append them to other functions
 audioElement.setAttribute('src', 'Audio/'+song.file);
-var gameLoop = setInterval(gameLoop, +song.speed);
+var gameLoop = setInterval(gameLoop, +song.speed); // This controls how fast each outer circle retracts
 $("#songName").text("Now Playing: "+song.file);
 // $("html").css("background", 'Images/'+song.background);
 
@@ -184,11 +112,11 @@ function timer(){
   });
 }
 timer();
-
-
+// Each click function occurs on mouse click DOWN and UP. Will also do logic for checking
+// -multiple clicks, this is an unwanted effect.
 function clickOne(){      
   $(".button1").mouseup(function() {
-    //clickFired = true;
+    clickFired = true;
     $(this).css("background-color","transparent");
   });
   $(".button1").mousedown(function() {
@@ -204,11 +132,10 @@ function clickOne(){
   });
 }
 clickOne();
-
 function clickTwo(){
   $(".button2")
     .mouseup(function() {
-    //clickFired = true;
+    clickFired = true;
     $(this).css("background-color","transparent");
   })
     .mousedown(function() {
@@ -224,11 +151,10 @@ function clickTwo(){
   });
 }
 clickTwo();
-
 function clickThree(){
   $(".button3")
     .mouseup(function() {
-    //clickFired = true;
+    clickFired = true;
     $(this).css("background-color","transparent");
   })
     .mousedown(function() {
@@ -244,15 +170,14 @@ function clickThree(){
   });
 }
 clickThree();
-
-//Checks the current radius of the outer circle and adds it to score
+//Checks the current radius of the outer circle and adds it to score, VS mouse click.
   function checkStatus(){  
     if (currentSize <= 450  && currentSize >= 310 ) {
       runningScore = runningScore + 10; 
       $("#scoreValue").text("MISS CLICK : "+runningScore);
       MISS = MISS + 1;
       $("#MISS").text("MISS CLICK : "+MISS);    
-      if (MISS === 5){ // if 5 misses end the game!
+      if (MISS === 5){ // if 5 misses occur end the game!
         endTheGame();
         return;
       }
@@ -273,8 +198,11 @@ clickThree();
       alert("ERROR SCORE");
     }
   }
-
-// loops the retract circles as long as randomNumber is valid, 0,1,2.
+// loops the retract circle functions as long as randomNumber is valid, 0,1,2.
+//Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
+//Calculation for one interval above. Each case statement lasts for , 60000/BPM miliseconds.
+// retractCircle occurs every (60,000/BPM)/50 miliseconds. This is because retractCircle
+// needs to retract 50 times to reach the minimum radius. Then it loops back to case.
 function gameLoop(){
   switch(randomNumber) {
       case 0:        
@@ -291,7 +219,7 @@ function gameLoop(){
           break;
       }
 }
-
+// Each retract circle function, retracts each circle, 1,2,3 in a specific timeframe
   function retractCircle1() {
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'Audio/clap.wav');
@@ -325,8 +253,7 @@ function gameLoop(){
       (currentSize = currentSize - 5);
     }
     $(".circle1").css("height", currentSize);
-    $(".circle1").css("width", currentSize);
-    
+    $(".circle1").css("width", currentSize);    
   }
 
   function retractCircle2() {
@@ -363,7 +290,6 @@ function gameLoop(){
     }
     $(".circle2").css("height", currentSize);
     $(".circle2").css("width", currentSize);  
-
   }
 
   function retractCircle3() {
@@ -401,6 +327,6 @@ function gameLoop(){
   $(".circle3").css("height", currentSize);
   $(".circle3").css("width", currentSize);    
   }
-}, 1800); //DELAY ALL WHEN LOAD PLAY-PAGE, DELAY 1.5 seconds.
+}, 1800); //DELAY ALL WHEN LOAD BEAT-CLICK.HTML, DELAY 1.8 seconds.
 
 });
