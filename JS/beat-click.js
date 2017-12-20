@@ -35,7 +35,7 @@ function endTheGame(){
 // DELAY all below by 1800 miliseconds, see BOTTOM most code for delay length.
 setTimeout(function () { 
 randomAudio = Math.floor(Math.random()*9); // Choosen random song from tracks.
-//randomAudio = 0; // TEST - CLICKS ONLY SLOW
+//randomAudio = 9; // TEST - CLICKS ONLY SLOW
 //randomAudio = 8; // SUMMER 
 //randomAudio = 6; // RETROSOUL
 //Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
@@ -89,8 +89,9 @@ var audioElement = document.createElement('audio');
 audioElement.setAttribute('src', 'Audio/'+song.file);
 var gameLoop = setInterval(gameLoop, +song.speed); // This controls how fast each outer circle retracts
 $("#songName").text("Now Playing: "+song.file);
-// $("html").css("background", 'Images/'+song.background);
+//$("html").css("background-image", 'url(' +"../Images/34537145_p0.png"+ ')');
 
+  //background: url('../Images/35555933_p0.png')no-repeat center center fixed;
 //Controls the timer display on play-screen.
 function timer(){
   audioElement.play();
