@@ -26,8 +26,7 @@
 }
 
 .container-play{
-	margin-top: none;
-/*	background-color: grey;*/
+	margin-top: none;  
   background-color: transparent;
 	height: 100px;
 	text-align: center;
