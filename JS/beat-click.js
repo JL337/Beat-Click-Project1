@@ -10,17 +10,11 @@ var miss = 0; // MISSED clicks - Score 10
 var ok = 0; // OK clicks - Score 59
 var perfect = 0; // PERFECT clicks - Score 100
 var clickFired = false; // Checks if click has been pressed already
-//var keyFired = false;
-var miss = 0;
+var miss = 0; // Number of missed clicks
 var randomNumber = Math.floor(Math.random()*3); //Chooses the circle randomly
-var retracted = 0;
-var button = [".button1",".button2",".button3"];
-var circle = [".circle1",".circle2",".circle3"];
-var retracted = 0;
-//var checkRetract = [1,2,3];
-// clickAll((button[0], button[1], button[2]),(checkRetract[0], checkRetract[1], checkRetract[2]));
-// clickAll(button[0], button[1], button[2]);
-
+var button = $(".button");
+var circle = $(".circle");
+var interval;
 
 //Click "Return Home", to return to start page
 function clickToHome(){
@@ -29,52 +23,63 @@ function clickToHome(){
       location.href = 'start.html';
     });
 }
+
 //Ends the game if 10 misses have occured or current audio duration runs down to 00:00
 function endTheGame(){
-    alert("Game Over! Your Final Score is: "+runningScore);
-    location.href = 'start.html';
-  }   
-//randomAudio = Math.floor(Math.random()*9); // Choosen random song from tracks.
-randomAudio = 9; // TEST - CLICKS ONLY SLOW
+  clearInterval(interval);
+    audioElement.pause();
+  //alert("Game Over! Your Final Score is: "+runningScore);
+    $("#scoreValue").text("Final Score is: "+runningScore);
+  setTimeout(function(){
+    $("#scoreValue").text("Now returning to start screen!");
+    setTimeout(function(){
+      location.href = 'start.html';
+    }, 3000);
+  }, 5000);
+}   
+
+randomAudio = Math.floor(Math.random()*9); // Choosen random song from tracks.
+//randomAudio = 9; // TEST - CLICKS ONLY SLOW
 //randomAudio = 8; // SUMMER 
 //randomAudio = 6; // RETROSOUL
 //Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
 //Calculation for one interval above. ^
+
 var songsList = [{
-  file: "bensound-badass.mp3", //0
-  speed: 10, //interval speed of retractcircles
+  file: "bensound-badass.mp3", //REMOVE
+  speed: 20, //interval speed of retractcircles
   },
   {
-  file: "bensound-dance.mp3", //1
-  speed: 8.8888,
+  file: "bensound-dance.mp3", //1 REMOVE
+  speed: 16.5,
   },
   {
-  file: "bensound-goinghigher.mp3", //2
-  speed: 9.9174,
+  file: "bensound-goinghigher.mp3", //2 REMOVE
+  speed: 20,
   },
   {
-  file: "bensound-happyrock.mp3", //3
-  speed: 10,
+  file: "bensound-happyrock.mp3", //3 REMOVE
+  speed: 20,
   },
   {
-  file: "bensound-house.mp3", //4
-  speed: 10,
+  file: "bensound-house.mp3", //4 remove
+  speed: 20,
   },
   {
   file: "bensound-moose.mp3", //5
-  speed: 10,
+  speed: 20,
   },
   {
   file: "bensound-retrosoul.mp3", //6
-  speed: 11.2148,
+  speed: 22.42,
   },
   {
   file: "bensound-rumble.mp3", //7
-  speed: 8.5714,
+  speed: 17,
   },
   {
   file: "bensound-summer.mp3", //8
-  speed: 11.3208,
+  speed: 22.6,
   },
   {
   file: "bensound-happyrock.mp3", //9 - TEST ONLY
@@ -84,6 +89,7 @@ var songsList = [{
 // Choose data from the array
 var song = songsList[randomAudio]; 
 $("#songName").text("Now Playing: "+song.file);
+
 var audioElement = document.createElement('audio');
 audioElement.setAttribute('src', 'Audio/'+song.file);
 
@@ -91,22 +97,27 @@ audioElement.setAttribute('src', 'Audio/'+song.file);
 function timer(){
   audioElement.play();
   audioElement.addEventListener("timeupdate", function() {
-  var timeleft = document.getElementById('timeRemain'), //assign new variable time left
-      duration = parseInt(audioElement.duration), // parse in song total duration
-      currentTime = parseInt(audioElement.currentTime), // parse in song current position
-      timeLeft = duration - currentTime, // Time left is always equal to max duration - current
-      s, m;
-      s = timeLeft % 60; 
-      m = Math.floor( timeLeft / 60 ) % 60;  
-      s = s < 10 ? "0"+s : s; // seconds
-      m = m < 10 ? "0"+m : m; // minutes
-      timeRemain.innerHTML = "Time Left: "+m+":"+s; //append minutes and seconds left to targeted html id 
+  var timeleft = document.getElementById('timeRemain'); //assign new variable time left
+  var duration = parseInt(audioElement.duration); // parse in song total duration, seconds
+  var currentTime = parseInt(audioElement.currentTime); // parse in song current position, seconds
+  var timeLeft = duration - currentTime; // Time left is always equal to max duration - current
+  var s; 
+  var m;
+
+  s = timeLeft % 60; // seconds left
+  m = Math.floor( timeLeft / 60 ) % 60; // minutes left 
+  s = s < 10 ? "0"+s : s; // seconds less than 10, display 0+seconds, else dont add extra zero
+  m = m < 10 ? "0"+m : m; // minutes
+  timeRemain.innerHTML = "Time Left: "+m+":"+s; //append minutes and seconds left to targeted html id 
+
   if (timeLeft === 0){
     endTheGame();
     return;
   }      
+
   });
 }
+
 //Checks the current radius of the outer circle and adds it to score, VS mouse click.
   function checkStatus(){  
     if (currentSize <= 450  && currentSize >= 310 ) {
@@ -141,7 +152,7 @@ function clickAll(innerCircle){
     $(innerCircle).css("background-color","transparent");
   });
   $(innerCircle).mousedown(function() {
-    if(!clickFired) {
+    if(!clickFired && $(button).index(innerCircle) == randomNumber) {
       clickFired = true;
       var audioElement = document.createElement('audio');
       audioElement.setAttribute('src', 'Audio/wood.wav');
@@ -152,30 +163,6 @@ function clickAll(innerCircle){
     }
   });
 }
-
-// var keys = [".button1", ".button2", ".button3"];
-// var keyNum = [90,88,67]; // Z,X,C keys
-// keyPress(keys, keyNum);
-
-// function keyPress(keyUsed, keyValue){  
-//   $(keyUsed).keyup(function(){
-//     if (event.keyCode === keyValue){
-//       $(keyUsed).css("background-color","black");
-//     }
-//   });
-//   $(keyUsed).keydown(function(){
-//     if(!keyFired){
-//       keyFired = true;
-//       if (event.keyCode === keyValue){
-//         var audioElement = document.createElement('audio');
-//         audioElement.setAttribute('src', 'Audio/clap.wav');
-//         audioElement.play();
-//         $(keyUsed).css("background-color","black");
-//         }
-//     }        
-//   });
-// }
-
 
   function retractCircle(circleNum) {
     var audioElement = document.createElement('audio');
@@ -193,12 +180,11 @@ function clickAll(innerCircle){
       $(circleNum).css("background-color","transparent");
     }
     if (currentSize === minSize) {
-      audioElement.play();
+      //audioElement.play();
       currentSize = 450;
       console.log("CIRCLE RETRACT: "+circleNum+" DONE");
       decreasing == false;
       clickFired = false;
-      //keyFired = false;
       randomNumber = Math.floor(Math.random()*3);
       return;
     }  
@@ -210,33 +196,15 @@ function clickAll(innerCircle){
   }
 
 function gameLoop(){
-  switch(randomNumber) {
-      case 0:        
-          clickAll(button[0]);
-          retractCircle(circle[0]);
-          break;
-      case 1:
-          clickAll(button[1]);
-          retractCircle(circle[1]);
-          break;
-      case 2:
-          clickAll(button[2]);
-          retractCircle(circle[2]);
-          break;          
-      default:
-          endTheGame();
-          break;
-      }
+  clickAll(button[randomNumber]);
+  retractCircle(circle[randomNumber]);
 }
 
+clickToHome();
+
 setTimeout(function(){ 
-  clickToHome();
-  setInterval(gameLoop, +song.speed); // This controls how fast each outer circle retracts
+  interval = setInterval(gameLoop, +song.speed); // This controls how fast each outer circle retracts
   timer();
-  clickAll(button[0],button[1],button[2]);
-  retractCircle(circle[0],circle[1],circle[2]);
-  gameLoop();
 }, 2000);
 
 });
-

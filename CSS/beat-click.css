@@ -12,11 +12,11 @@
 }
 
 /*This is the moving OUTER circle*/
-.circle1 { 
+.circle { 
   /*z index makes sure ths circle is BELOW the INNER circle*/
   z-index: 1; 
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   position: relative;
   background-color: transparent;
   border-radius: 100%;
@@ -25,35 +25,12 @@
   margin: 5px;
 }
 
-.circle2 { 
-  z-index: 1;
-  height:100px;
-  width:100px;
-  position: relative;
-  background-color: transparent;
-  border-radius: 100%;
-  border: 5px solid #7FFFD4;
-  opacity: 0.7;
-  margin: 5px;
-}
-
-.circle3 { 
-  z-index: 1;
-  height:100px;
-  width: 100px;
-  position: relative;
-  background-color: transparent;
-  border-radius: 100%;
-  border: 5px solid #7FFFD4;
-  opacity: 0.7;
-  margin: 5px;
-}
 
 /*removes the blue background on button click!*/
 button:focus {outline:0;} 
 
 /*This is the static INNER circle*/
-.button1 {
+.button {
 /*z index makes sure ths circle is ABOVEthe OUTER circle*/
   z-index: 2;
   position: absolute;
@@ -63,26 +40,6 @@ button:focus {outline:0;}
   border-radius: 100%;
   border: 10px solid grey;
 
-}
-
-.button2 {
-  z-index: 2;
-  position: absolute;
-  height: 200px;
-  width: 200px;
-  background-color: transparent;
-  border-radius: 100%;
-  border: 10px solid grey;
-}
-
-.button3 {
-  z-index: 2;
-  position: absolute;
-  height: 200px;
-  width: 200px;
-  background-color: transparent;
-  border-radius: 100%;
-  border: 10px solid grey;
 }
 
 /*Current Score box*/
@@ -161,8 +118,17 @@ button:focus {outline:0;}
 
 /*Adjust the background image*/
 body{ 
-  background: url('../Images/9.png') no-repeat center center fixed;
-  background-size: cover;
+  background: url('../Images/9.png');
+  animation: moveBackground 40s linear infinite;
+/*  background-size: cover;*/
 }
 
+@keyframes moveBackground{
+  from{
+    background-position: 0px 0px;
+  } to {
+    background-position: -1920px 0px;
+  }
 }
+
+
