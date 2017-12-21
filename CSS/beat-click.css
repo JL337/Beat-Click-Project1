@@ -25,7 +25,6 @@
   margin: 5px;
 }
 
-
 /*removes the blue background on button click!*/
 button:focus {outline:0;} 
 

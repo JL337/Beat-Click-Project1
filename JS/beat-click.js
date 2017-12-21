@@ -34,8 +34,8 @@ function endTheGame(){
     $("#scoreValue").text("Now returning to start screen!");
     setTimeout(function(){
       location.href = 'start.html';
-    }, 3000);
-  }, 5000);
+    }, 2500);
+  }, 3000);
 }   
 
 randomAudio = Math.floor(Math.random()*9); // Choosen random song from tracks.
@@ -50,19 +50,19 @@ var songsList = [{
   speed: 20, //interval speed of retractcircles
   },
   {
-  file: "bensound-dance.mp3", //1 REMOVE
-  speed: 16.5,
+  file: "bensound-dance.mp3", //1 
+  speed: 17.7776,
   },
   {
-  file: "bensound-goinghigher.mp3", //2 REMOVE
-  speed: 20,
+  file: "bensound-goinghigher.mp3", //2 
+  speed: 19.8348,
   },
   {
-  file: "bensound-happyrock.mp3", //3 REMOVE
-  speed: 20,
+  file: "bensound-happyrock.mp3", //3 
+  speed: 13.3332,
   },
   {
-  file: "bensound-house.mp3", //4 remove
+  file: "bensound-house.mp3", //4 
   speed: 20,
   },
   {
@@ -71,19 +71,15 @@ var songsList = [{
   },
   {
   file: "bensound-retrosoul.mp3", //6
-  speed: 22.42,
+  speed: 22.4296,
   },
   {
   file: "bensound-rumble.mp3", //7
-  speed: 17,
+  speed: 17.1428,
   },
   {
   file: "bensound-summer.mp3", //8
-  speed: 22.6,
-  },
-  {
-  file: "bensound-happyrock.mp3", //9 - TEST ONLY
-  speed: 40,
+  speed: 22.6424,
   }
 ]
 // Choose data from the array
