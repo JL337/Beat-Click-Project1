@@ -1,5 +1,5 @@
 /*Parent container for BOTH the inner and outr circles*/
-.parent{
+.parent1{
     background: transparent;
     opacity: 1;
     height: 450px;
@@ -12,10 +12,34 @@
 }
 
 /*This is the moving OUTER circle*/
-.circle { 
+.circle1 { 
   /*z index makes sure ths circle is BELOW the INNER circle*/
   z-index: 1; 
   height: 100px;
+  width: 100px;
+  position: relative;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 5px solid #7FFFD4;
+  opacity: 0.7;
+  margin: 5px;
+}
+
+.circle2 { 
+  z-index: 1;
+  height:100px;
+  width:100px;
+  position: relative;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 5px solid #7FFFD4;
+  opacity: 0.7;
+  margin: 5px;
+}
+
+.circle3 { 
+  z-index: 1;
+  height:100px;
   width: 100px;
   position: relative;
   background-color: transparent;
@@ -29,7 +53,7 @@
 button:focus {outline:0;} 
 
 /*This is the static INNER circle*/
-.button {
+.button1 {
 /*z index makes sure ths circle is ABOVEthe OUTER circle*/
   z-index: 2;
   position: absolute;
@@ -39,6 +63,26 @@ button:focus {outline:0;}
   border-radius: 100%;
   border: 10px solid grey;
 
+}
+
+.button2 {
+  z-index: 2;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 10px solid grey;
+}
+
+.button3 {
+  z-index: 2;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 10px solid grey;
 }
 
 /*Current Score box*/
