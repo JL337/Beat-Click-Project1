@@ -1,23 +1,23 @@
-# Beat!Click Rythym Game 
-Beat-Click-Project1
-(HTML, CSS, Javascript, JQuery) 
+# Beat!Click Rhythm Game 
 Sparta Global/Project 1/W3 D1-D5
 
-A music beat rythym browser game created with HTML, CSS, Javascript and JQuery.
+A music beat rhythm browser game created with HTML, CSS, Javascript and JQuery.
 
 
 ## Purpose
-The aim of this project was to build a browser based game using only HTML, CSS, Javascript and JQuery. This was compeleted from scratch over the span of approximately four to five days, and involved two sprints. 
+The aim of this project was to build a browser based game using only HTML, CSS, Javascript and JQuery. This was compeleted from scratch over the span of approximately four to five days, and involved two Agile sprints. Git/Github were tools used, as well as Trello to keep track of progress. 
 
 ## Functionality
 
-The objective of the game is to score as many points as possible within a given time frame or win with as least mistakes, aka 'Miss(ed' clicks as possible. 
+The objective of the game is to score as many points as possible within a given time frame and/or win with as little 'miss' clicks as possible. 
 
-In order to to this, the player must click with the mouse in time to the background music. When the outer circle meets the inner circle, they should click on the corresponding inner circle. This earns the player points depending on the exact real-time accuracy of the click. 
+The player must click with the mouse in time to the background music. When the outer circle meets the inner circle, the player should click on the corresponding inner circle. This earns the player points depending on the exact real-time accuracy of the click. 
 
-If the player reaches the threshold on variable `MISS` , the game ends. The game also ends when the audio duration of the music reaches `00:00`.
+If the player reaches the cap threshold on variable `miss` , the game ends. The number of misses are displayed on the play screen. The game also ends when the audio duration of the music reaches `00:00`.
 
-Input data is obtained from the mouse. Additionally DOM manipulation was used, with JQuery to change the HTML. Some mathematical calculations were used to calculate the BPM and interval delays in order to match the outer circle in time to each song. See `Audio`  directory for a list of all songs used.
+Input data is obtained from the mouse. Additionally DOM manipulation was used, with JQuery to change HTML elements. 
+
+Some mathematical calculations were used to calculate the BPM and interval delays in order to match the outer circle in time to each song. See `beat-click.txt` for for details. Also see `Audio`  directory for a list of all songs and audio effects used.
 
 ## Implementation
 
@@ -26,23 +26,19 @@ The functionality has been implemented using the following features:
 * Twitter Bootstrap 3.3.7
 * Semantic HTML5
 * HTML5 Audio
+* CSS
 * JQuery 3.2.1
 * Javascript 
-* CSS
 
 ## Usage
 
-### Building
-
-Fork/clone this repository.
-
 ### Running
 
-Open `start.html` to start the game. This contains Beat!Click introduction page and start game button.
+Open `index.html` to start the game. This contains Beat!Click introduction page and start game button.
 
 Open `beat-click.html` to start the game immediately.
 
-Make sure all the files and directories are there before starting the same. A list of all files and directories can be seen in the Customising section.
+Make sure all the files and directories are ready to open, before starting the game. A list of all files and directories can be seen in the Customising section.
 
 ### Customising
 
@@ -66,14 +62,13 @@ All Other Directories Listed:
 * `CSS`
 * `JS`
 
-### Viewing the docs
-
-
 ## Issues
 
 * None currently.
 
-## Acknlowdge
+## References and Credit
+* [bensound](https://www.bensound.com/) website for providing music tracks used in this project. 
+* [Jolliam](https://www.pixiv.net/member.php?id=3438144) from pixiv art website for providing background images.
 
 
 
