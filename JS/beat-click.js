@@ -127,13 +127,13 @@ function checkStatus(){
     runningScore = runningScore + 50; 
     $("#scoreValue").text("OK +50! : "+runningScore); 
     ok = ok + 1;
-    $("#scoreValue").css("color","orange");
+    $("#scoreValue").css("color","#C8722E");
     $("#ok").text("OK CLICKS : " +ok);  
   } 
   else if (currentSize <= 239  && currentSize >= 200) {
     runningScore = runningScore + 100; 
     $("#scoreValue").text("PERFECT +100! : "+runningScore);
-    $("#scoreValue").css("color","green"); 
+    $("#scoreValue").css("color","#4F084E"); 
     perfect = perfect + 1;
     $("#perfect").text("PERFECT CLICKS : "+perfect);  
   } 

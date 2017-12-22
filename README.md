@@ -48,19 +48,20 @@ Make sure all the files and directories are there before starting the same. A li
 
 To customise the content, modify the contents of the following files:
 
-* `start.html`
-* `start.css`
-* `start.js`
+* `index.html`
+* `index.css`
+* `index.js`
 * `beat-click.html`
 * `beat-click.css`
 * `beat-click.js`
+* `beat-click.txt` - This file only contains basic text containing details about the song tracks.
 
 There are also seperate directories for Audio and Images.
 
 * `Images` - All Images used
 * `Audio` - All Song Tracks used
 
-Other Directories:
+All Other Directories Listed:
 
 * `CSS`
 * `JS`
@@ -70,12 +71,10 @@ Other Directories:
 
 ## Issues
 
-* Do not click mutliple times per circle button, this will interfere with the scoring system.
-* End final score *may* not display correctly.
+* None currently.
 
-## Demo site
+## Acknlowdge
 
 
-## License
 
 
