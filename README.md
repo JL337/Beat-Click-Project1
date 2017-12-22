@@ -5,7 +5,7 @@ A music beat rhythm browser game created with HTML, CSS, Javascript and JQuery.
 
 
 ## Purpose
-The aim of this project was to build a browser based game using only HTML, CSS, Javascript and JQuery. This was compeleted from scratch over the span of approximately four to five days, and involved two Agile sprints. Git/Github were tools used, as well as Trello to keep track of progress. 
+The aim of this project was to build a browser based game using only HTML, CSS, Javascript and JQuery. This was compeleted from scratch over the span of approximately four to five days, and involved two Agile sprints. Git/Github were tools used, as well as Trello to keep track of progress.
 
 ## Functionality
 
@@ -62,9 +62,6 @@ All Other Directories Listed:
 * `CSS`
 * `JS`
 
-## Issues
-
-* None currently.
 
 ## References and Credit
 * [bensound](https://www.bensound.com/) website for providing music tracks used in this project. 

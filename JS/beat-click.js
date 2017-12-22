@@ -96,6 +96,7 @@ function timer(){
   s = s < 10 ? "0"+s : s; // Seconds less than 10, display 0+seconds, else dont add extra zero.Eg.00:05
   m = m < 10 ? "0"+m : m; // Minutes less than 10, display 0+minutes, else dont add extra zero.Eg.01:00
   timeRemain.innerHTML = "Time Left: "+m+":"+s; //append minutes and seconds left to Time Left on scorebox 
+  
   if (timeLeft <= 60){
     $("#timeRemain").css("color","orange"); // If 60 seconds or less left change colour of Time Left to orange
   }
