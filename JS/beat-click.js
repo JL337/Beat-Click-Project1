@@ -33,7 +33,7 @@ function endTheGame(){
       location.href = 'index.html';
     }, 2500);
   }, 3000);
-}   
+}  
 //Time of 1 beat in ms = 1000 * 60 / BPM = 60000 / BPM
 //To do 1 full outer circle contraction, it goes from 450-250 size. Each decreases by 5 at a time.
 //To calculate speed, (60,000/BPM)/50 = speed, 1/4 note beats
@@ -133,7 +133,7 @@ function checkStatus(){
   else if (currentSize <= 239  && currentSize >= 200) {
     runningScore = runningScore + 100; 
     $("#scoreValue").text("PERFECT +100! : "+runningScore);
-    $("#scoreValue").css("color","#4F084E"); 
+    $("#scoreValue").css("color","green"); 
     perfect = perfect + 1;
     $("#perfect").text("PERFECT CLICKS : "+perfect);  
   } 
