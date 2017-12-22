@@ -1,7 +1,5 @@
-/*Parent container for BOTH the inner and outr circles*/
+/*Parent container for BOTH the inner and outer circles*/
 .parent1{
-    background: transparent;
-    opacity: 1;
     height: 450px;
     width: 450px;
     position: relative;
@@ -9,9 +7,12 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
 }
 
-/*This is the moving OUTER circle*/
+/*OUTER circle*/
 .circle { 
   /*z index makes sure ths circle is BELOW the INNER circle*/
   z-index: 1; 
@@ -20,17 +21,17 @@
   position: relative;
   background-color: transparent;
   border-radius: 100%;
-  border: 5px solid #7FFFD4;
-  opacity: 0.7;
+  border: 7px solid #7FFFD4;
+  opacity: 0.75;
   margin: 5px;
 }
 
-/*removes the blue background on button click!*/
+/*Removes the blue background on button click!*/
 button:focus {outline:0;} 
 
 /*This is the static INNER circle*/
 .button {
-/*z index makes sure ths circle is ABOVEthe OUTER circle*/
+/*z index makes sure ths circle is ABOVE the OUTER circle*/
   z-index: 2;
   position: absolute;
   height: 200px;
@@ -48,13 +49,29 @@ button:focus {outline:0;}
   color:#e2eaf3;
   font-family: 'Verdana', sans-serif;
   font-size:1.2em;
-  color:#e2eaf3;
   font-weight:bold;
   text-decoration:none;
-  border-radius: 40px;
+  border-radius: 30px;
   padding-bottom: 3px;
-  padding-top: 0.06px;
+  padding-top: 0.05px;
   margin-bottom: 10px;
+}
+
+/*Time Left in the score box*/
+#timeRemain{
+  color: green;
+}
+
+/*Short Description of the "Return Home" button*/
+#returnDesc{
+  background-color: black;
+  text-align:center;
+  color:#e2eaf3;
+  font-family: 'Verdana', sans-serif;
+  font-size:1.2em;
+  font-weight:bold;
+  text-decoration:none;
+  border-radius: 8px;
 }
 
 /*Click to return back to home page, on start-up*/
@@ -65,61 +82,23 @@ button:focus {outline:0;}
   color:#e2eaf3;
   font-family: 'Verdana', sans-serif;
   font-size:1.2em;
-  color:#e2eaf3;
   font-weight:bold;
   text-decoration:none;
-  border-radius: 20px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin-bottom: 10px;
+  border-radius: 10px;
 }
 
-/*Short Description of the "Return Home" button*/
-#returnDesc{
-  background-color: black;
-  text-align:center;
-  color:#e2eaf3;
-  font-family: 'Verdana', sans-serif;
-  font-size:1.2em;
-  color:#e2eaf3;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius: 40px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  margin-bottom: 10px;
-}
-
-/*Display time left on currently playing song*/
-#timeleft{
-  background-color: transparent;
-  text-align:center;
-  color:#e2eaf3;
-  font-family: 'Verdana', sans-serif;
-  font-size:1.2em;
-  color:#e2eaf3;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-/*Display the currently playing song name*/
+/*Display the currently playing song track*/
 #songName{
   margin-top: 0px;
-  background-color: transparent;
-  text-align:center;
-  color:#e2eaf3;
-  font-family: 'Verdana', sans-serif;
   font-size:1.2em;
-  color:#e2eaf3;
   font-weight:bold;
   text-decoration:none;
 }
 
-/*Adjust the background image*/
 body{ 
   background: url('../Images/9.png');
-  animation: moveBackground 40s linear infinite;
-/*  background-size: cover;*/
+  animation: moveBackground 90s linear infinite;
+  background-size: cover;
 }
 
 @keyframes moveBackground{
