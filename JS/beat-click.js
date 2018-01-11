@@ -13,7 +13,6 @@ var randomAudio = Math.floor(Math.random()*9); // Choosen random song from track
 var button = $(".button");// All Inner circles
 var circle = $(".circle");// All Outer circles
 var interval; //Game loop interval
-
 //Click "Return Home", to return to start page
 function clickToHome(){
     home.addEventListener("click", function() 
