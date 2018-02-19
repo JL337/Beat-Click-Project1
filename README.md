@@ -1,6 +1,8 @@
 # Beat!Click Rhythm Game 
 Sparta Global/Project 1/W3 D1-D5
 
+<https://jl337.github.io/Beat-Click-Project1/index.html>
+
 A music beat rhythm browser game created with HTML, CSS, Javascript and JQuery.
 
 
